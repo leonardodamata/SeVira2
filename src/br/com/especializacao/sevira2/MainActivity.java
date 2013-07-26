@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
 	  public class MainAction extends AbstractAction {
 		  
 	        public MainAction() {
-	            super(R.drawable.ic_launcher_carrinho);
+	            super(R.drawable.home);
 	             
 	        }
 	 
@@ -51,13 +51,14 @@ public class MainActivity extends Activity {
 	        }
 	    }
 	     
-	    private class CloseAction extends AbstractAction {
+	  private class CloseAction extends AbstractAction {
 	 
 	        public CloseAction() {
 	            super(R.drawable.close);
 	        }
 	 
-	        public void performAction(View view) {
+	        @Override
+			public void performAction(View view) {
 	            finish();
 	        }
 	    }

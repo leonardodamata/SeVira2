@@ -25,11 +25,11 @@ int drawable banana 0x7f020008
 int drawable batata 0x7f020009
 int drawable cafe 0x7f02000a
 int drawable carne 0x7f02000b
-int drawable casa 0x7f02000c
-int drawable close 0x7f02000d
-int drawable farinha 0x7f02000e
-int drawable feijao 0x7f02000f
-int drawable frango 0x7f020010
+int drawable close 0x7f02000c
+int drawable farinha 0x7f02000d
+int drawable feijao 0x7f02000e
+int drawable frango 0x7f02000f
+int drawable home 0x7f020010
 int drawable ic_launcher 0x7f020011
 int drawable ic_launcher_carrinho 0x7f020012
 int drawable icon 0x7f020013
