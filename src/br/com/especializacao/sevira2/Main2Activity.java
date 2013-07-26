@@ -10,23 +10,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class Main2Activity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_main2);
 	    configureActionBar();
 	}
-	
+
 	 private void configureActionBar() {
 	        ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
-	        actionBar.setTitle(R.string.bem_vindo);
+	        actionBar.setTitle(R.string.opcao);
 	        actionBar.setHomeAction(new MainAction());
-	        actionBar.addAction(new EnterAction());
 	        actionBar.addAction (new CloseAction());
 	        actionBar.setDisplayHomeAsUpEnabled(true);
 	    }
@@ -47,7 +45,8 @@ public class MainActivity extends Activity {
 	 
 	        @Override
 	        public void performAction(View view) {
-	        	  Toast.makeText(view.getContext(), "Início do SeVira", Toast.LENGTH_SHORT).show();
+	        	 Intent i = new Intent(Main2Activity.this, MainActivity.class);
+				  startActivity(i);
 	 
 	        }
 	    }
@@ -64,19 +63,6 @@ public class MainActivity extends Activity {
 	        }
 	    }
 	     
-	    private class EnterAction extends AbstractAction {
-	 
-	        public EnterAction() {
-	            super(R.drawable.ok);
-	        }
-	 
-	        @Override
-	        public void performAction(View view) {
-	            Toast.makeText(view.getContext(), "Faça Boas Compras!!", Toast.LENGTH_SHORT).show();
-	            
-	            Intent i = new Intent(MainActivity.this, Main2Activity.class);
-				  startActivity(i);
-	        }
-	    }
+	
 
 }

@@ -1,0 +1,51 @@
+<!-- Your package folder -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_weight="1"
+    android:background="#87CEEB" >
+
+    <!--  Criar Button -->
+    <Button
+        android:id="@+id/btn_news_feed"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/add"
+        android:text="@string/criar"/>
+      
+    <!--  Alterar Button -->
+    <Button
+        android:id="@+id/btn_friends"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ok"
+        android:text="@string/alterar" />
+  
+    <!--  Apagar Button -->
+    <Button
+        android:id="@+id/btn_messages"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ok"
+        android:text="@string/apagar" />
+  
+    <!--  Alarme Button -->
+    <Button
+        android:id="@+id/btn_places"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ok"
+        android:text="@string/alarme" />
+ 
+    
+    <!--  Compartilhar Button -->
+    <Button
+        android:id="@+id/btn_events"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ok"
+        android:text="@string/compartilhar" />
+ 
+    <!--  Enviar Google Task Button -->
+    <Button
+        android:id="@+id/btn_photos"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/ok"
+        android:text="@string/enviar" />
+ 
+</LinearLayout>
