@@ -9,10 +9,11 @@
     <string name="opcao">Escolha uma opçao!</string>
     <string name="footer">Se Vira 2.0</string>
     <string name="criar">Criar</string>
-    <string name="alterar">Alterar</string>
+    <string name="alterar">Atualizar</string>
     <string name="apagar">Apagar</string>
-    <string name="alarme">Alarme</string>
+    <string name="alarme">Agendar</string>
     <string name="compartilhar">Compartilhar</string>
-    <string name="enviar">Enviar Google Task</string>
+    <string name="enviar">Google Calendar</string>
+    <string name="title_activity_lista">ListaActivity</string>
 
 </resources>

@@ -1,7 +1,5 @@
 package br.com.especializacao.sevira2;
 
-
-
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
@@ -10,38 +8,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 
-public class Main2Activity extends Activity {
+public class ListaActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
-		setContentView(R.layout.activity_main2);
-	    configureActionBar();
-	    
-	    
-	 // Dashboard News feed button
-        Button btn_newlista = (Button) findViewById(R.id.btn_new_lista);
-        
-        
-        /**
-         * Handling all button click events
-         * */
-         
-        // Listening to Nova lista button click
-        btn_newlista.setOnClickListener(new View.OnClickListener() {
-             
-            @Override
-            public void onClick(View view) {
-                // Launching News Feed Screen
-                Intent i = new Intent(getApplicationContext(), ListaActivity.class);
-                startActivity(i);
-            }
-        });
+		setContentView(R.layout.activity_lista);
+		 configureActionBar();
 	}
- 
+
 	 private void configureActionBar() {
 	        ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
 	        actionBar.setTitle(R.string.opcao);
@@ -66,7 +43,7 @@ public class Main2Activity extends Activity {
 	 
 	        @Override
 	        public void performAction(View view) {
-	        	 Intent i = new Intent(Main2Activity.this, MainActivity.class);
+	        	 Intent i = new Intent(getApplicationContext(), MainActivity.class);
 				  startActivity(i);
 	 
 	        }

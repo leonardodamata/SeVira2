@@ -38,13 +38,14 @@
         <item name="android:textColor">#ff29549f</item>
         <item name="android:background">#FFFFFF</item>
     </style>    
+    
      
    <style name="FooterBar">
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:background">#00BFFF</item>
+        <item name="android:background">#dedede</item>
     </style>     
     
 </resources>
