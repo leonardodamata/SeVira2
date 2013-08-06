@@ -15,5 +15,6 @@
     <string name="compartilhar">Compartilhar</string>
     <string name="enviar">Google Calendar</string>
     <string name="title_activity_lista">ListaActivity</string>
+    <string name="dados">Sem Dados</string>
 
 </resources>
