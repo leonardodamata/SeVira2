@@ -33,7 +33,7 @@ int drawable ok 0x7f02000e
 int drawable refresh 0x7f02000f
 int drawable remove 0x7f020010
 int drawable share 0x7f020011
-int id action_settings 0x7f090013
+int id action_settings 0x7f090017
 int id actionbar 0x7f09000a
 int id actionbar_actions 0x7f090006
 int id actionbar_home 0x7f090001
@@ -50,8 +50,12 @@ int id btn_messages 0x7f09000d
 int id btn_new_lista 0x7f09000b
 int id btn_photos 0x7f090010
 int id btn_places 0x7f09000e
-int id id 0x7f090012
-int id nome 0x7f090011
+int id email 0x7f090012
+int id email_label 0x7f090015
+int id mobile 0x7f090013
+int id mobile_label 0x7f090016
+int id name 0x7f090011
+int id name_label 0x7f090014
 int id screen 0x7f090000
 int layout actionbar 0x7f030000
 int layout actionbar_item 0x7f030001
@@ -60,7 +64,9 @@ int layout activity_main 0x7f030003
 int layout activity_main2 0x7f030004
 int layout footer_layout 0x7f030005
 int layout fragment_layout 0x7f030006
-int layout row_site 0x7f030007
+int layout list_item 0x7f030007
+int layout main 0x7f030008
+int layout single_list_item 0x7f030009
 int menu lista 0x7f080000
 int menu main 0x7f080001
 int menu main2 0x7f080002
