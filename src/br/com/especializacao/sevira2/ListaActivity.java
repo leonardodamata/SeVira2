@@ -3,30 +3,25 @@ package br.com.especializacao.sevira2;
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
-import java.util.ArrayList;
-import java.util.HashMap;
- 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
  
-import android.app.ListActivity;
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class ListaActivity extends ListActivity {
+public class ListaActivity extends Activity {
 
-
+	  TextView txtViewParsedValue;
+	    private JSONObject jsonObject;
+	 
+	    String strParsedValue = null;
+	 
+	    private String strJSONValue = "{\"FirstObject\":{\"attr1\":\"one value\" ,\"attr2\":\"two value\","
+	            +"\"sub\": { \"sub1\":[ {\"sub1_attr\":\"sub1_attr_value\" },{\"sub1_attr\":\"sub2_attr_value\" }]}}}";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,10 +29,44 @@ public class ListaActivity extends ListActivity {
 		setContentView(R.layout.activity_lista);
 	    configureActionBar();
 	    
+	    txtViewParsedValue = (TextView) findViewById(R.id.textView1);
+	    
+        try {
+            parseJSON();
+ 
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     
 		 
 	
 	}
+	
+	
+	 public void parseJSON() throws JSONException
+	    {
+	        jsonObject = new JSONObject(strJSONValue);
+	 
+	        JSONObject object = jsonObject.getJSONObject("FirstObject");
+	        String attr1 = object.getString("attr1");
+	        String attr2 = object.getString("attr2");
+	 
+	        strParsedValue="Attribute 1 value => "+attr1;
+	        strParsedValue+="\n Attribute 2 value => "+attr2;
+	 
+	        JSONObject subObject = object.getJSONObject("sub");
+	        JSONArray subArray = subObject.getJSONArray("sub1");
+	 
+	        strParsedValue+="\n Array Length => "+subArray.length();
+	 
+	        for(int i=0; i<subArray.length(); i++)
+	        {
+	            strParsedValue+="\n"+subArray.getJSONObject(i).getString("sub1_attr").toString();
+	        }
+	 
+	        txtViewParsedValue.setText(strParsedValue);
+	    }
 
 	 private void configureActionBar() {
 	        ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
