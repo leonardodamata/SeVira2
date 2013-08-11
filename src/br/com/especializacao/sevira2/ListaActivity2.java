@@ -19,10 +19,10 @@ import android.widget.ListView;
 
 
 
-public class ListaActivity extends  ListActivity  {
+public class ListaActivity2 extends  ListActivity  {
 
-	private ArrayList<Subcategory> subcategorys;
-	private SubcategoryAdapter adapter;
+	private ArrayList<Site> sites;
+	private MeuAdapter adapter;
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +30,18 @@ public class ListaActivity extends  ListActivity  {
 		setTitle(R.string.app_name);
 		setContentView(R.layout.activity_lista);
 	    configureActionBar();
-	    subcategorys = new ArrayList<Subcategory>();
-		adapter = new SubcategoryAdapter (this,R.layout.row_site,subcategorys);
+	     sites = new ArrayList<Site>();
+		adapter = new MeuAdapter (this,R.layout.row_site,sites);
 		
 		setListAdapter(adapter);
 		
-		leituraSubcategory();    
+		leituraSites();    
 
 	 }
 
 
-	private void leituraSubcategory(){
-		SubcategoryDownloader atualizador = new SubcategoryDownloader(this);
+	private void leituraSites(){
+		SitesDownloader atualizador = new SitesDownloader(this);
 		atualizador.execute();
 
 	}
@@ -51,7 +51,7 @@ public class ListaActivity extends  ListActivity  {
 		super.onListItemClick(l,v,position,id);
 		
 		Intent i = new  Intent(this,NavegadorActivity.class);
-		i.putExtra("url",subcategorys.get(position).getUrl());
+		i.putExtra("url",sites.get(position).getUrl());
 		startActivity(i);
 		
 	}
@@ -62,9 +62,9 @@ public class ListaActivity extends  ListActivity  {
 		return true;
 	}
 	
-	public void atualizaItens(ArrayList<Subcategory> meusSubcategorys){
-		this.subcategorys.clear();
-		this.subcategorys.addAll(meusSubcategorys);
+	public void atualizaItens(ArrayList<Site> meusSites){
+		this.sites.clear();
+		this.sites.addAll(meusSites);
 		adapter.notifyDataSetChanged();
  
 	}

@@ -12,11 +12,11 @@ import android.util.Log;
 
 public class SitesDownloader extends AsyncTask<Void,Void,ArrayList<Site>>{
 	
-	private ListaActivity uiLista;
+	private ListaActivity2 uiLista;
 	private ProgressDialog dialog;
 	
 		
-	public SitesDownloader(ListaActivity uiLista){
+	public SitesDownloader(ListaActivity2 uiLista){
 		
 		this.uiLista = uiLista;
 			
