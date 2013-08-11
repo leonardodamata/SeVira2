@@ -16,5 +16,6 @@
     <string name="enviar">Google Calendar</string>
     <string name="title_activity_lista">ListaActivity</string>
     <string name="dados">Sem Dados</string>
+    <string name="title_activity_navegador">Navegador</string>
 
 </resources>

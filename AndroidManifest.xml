@@ -7,7 +7,8 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -31,10 +32,10 @@
             android:name="br.com.especializacao.sevira2.ListaActivity"
             android:label="@string/title_activity_lista" >
         </activity>
-         <!-- Single List Item View -->
+      
         <activity
-            android:label="Single Menu Item"
-            android:name=".SingleMenuItemActivity" >
+            android:name="br.com.especializacao.sevira2.NavegadorActivity"
+            android:label="@string/title_activity_navegador" >
         </activity>
     </application>
 

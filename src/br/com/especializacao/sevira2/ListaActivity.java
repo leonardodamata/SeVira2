@@ -1,84 +1,73 @@
 package br.com.especializacao.sevira2;
 
+
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import java.util.ArrayList;
+
  
-import android.app.Activity;
-//import android.app.ProgressDialog;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
-public class ListaActivity extends Activity {
+import android.widget.ListView;
 
-	  TextView txtViewParsedValue;
-	    private JSONObject jsonObject;
-	    
-	 
 
-	    String strParsedValue = null;
 
-	    private static final String strJSONValue2 = "sandbox.buscape.com/service/findCategoryList/4a57456655795158636b673d/?categoryId=0&format=json";
-	    private String strJSONValue = "{\"FirstObject\":{\"attr1\":\"one value\" ,\"attr2\":\"two value\","
-	          +"\"sub\": { \"sub1\":[ {\"sub1_attr\":\"sub1_attr_value\" },{\"sub1_attr\":\"sub2_attr_value\" }]}}}";
+public class ListaActivity extends  ListActivity  {
+
+	private ArrayList<Site> sites;
+	private MeuAdapter adapter;
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
 		setContentView(R.layout.activity_lista);
-	    configureActionBar();
+	    configureActionBar();sites = new ArrayList<Site>();
+		adapter = new MeuAdapter (this,R.layout.row_site,sites);
+		
+		setListAdapter(adapter);
+		
+		leituraSites();    
 
-	    Toast.makeText(getApplicationContext(), strJSONValue2, Toast.LENGTH_LONG).show();
-	    
-	    
-        //Progresso por tempo indeterminado.
-       // Object pd = null;
-        //pd = ProgressDialog.show(this,"Aguarde", "Sincronizando com WebService", true, false);
-        
-	    txtViewParsedValue = (TextView) findViewById(R.id.textView1);
+	 }
 
-        try {
-            parseJSON();
- 
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    
 
+	private void leituraSites(){
+		SitesDownloader atualizador = new SitesDownloader(this);
+		atualizador.execute();
 
 	}
 
+	@Override
+	protected void onListItemClick(ListView  l, View v, int position, long id){
+		super.onListItemClick(l,v,position,id);
+		
+		Intent i = new  Intent(this,NavegadorActivity.class);
+		i.putExtra("url",sites.get(position).getUrl());
+		startActivity(i);
+		
+	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.lista, menu);
+		return true;
+	}
+	
+	public void atualizaItens(ArrayList<Site> meusSites){
+		this.sites.clear();
+		this.sites.addAll(meusSites);
+		adapter.notifyDataSetChanged();
+ 
+	}
 
-	 public void parseJSON() throws JSONException
-	    {
-	        jsonObject = new JSONObject(strJSONValue);
-
-	        JSONObject object = jsonObject.getJSONObject("FirstObject");
-	        String attr1 = object.getString("attr1");
-	        String attr2 = object.getString("attr2");
-
-	        strParsedValue="Attribute 1 value => "+attr1;
-	        strParsedValue+="\n Attribute 2 value => "+attr2;
-
-	        JSONObject subObject = object.getJSONObject("sub");
-	        JSONArray subArray = subObject.getJSONArray("sub1");
-
-	        strParsedValue+="\n Array Length => "+subArray.length();
-
-	        for(int i=0; i<subArray.length(); i++)
-	        {
-	            strParsedValue+="\n"+subArray.getJSONObject(i).getString("sub1_attr").toString();
-	        }
-
-	        txtViewParsedValue.setText(strParsedValue);
-	    }
 
 	 private void configureActionBar() {
 	        ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
@@ -88,12 +77,6 @@ public class ListaActivity extends Activity {
 	        actionBar.setDisplayHomeAsUpEnabled(true);
 	    }
 
-	 @Override
-		public boolean onCreateOptionsMenu(Menu menu) {
-			// Inflate the menu; this adds items to the action bar if it is present.
-			getMenuInflater().inflate(R.menu.main, menu);
-			return true;
-		}
 
 		  public class MainAction extends AbstractAction {
 
