@@ -1,4 +1,4 @@
-package br.com.especializacao.sevira2;
+package br.com.especializacao.json;
 
 import java.io.BufferedReader;
 import java.io.IOException;

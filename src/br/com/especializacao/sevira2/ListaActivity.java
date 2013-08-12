@@ -2,6 +2,11 @@ package br.com.especializacao.sevira2;
 
 
 
+
+import br.com.especializacao.json.Subcategory;
+import br.com.especializacao.json.SubcategoryAdapter;
+import br.com.especializacao.json.SubcategoryDownloader;
+
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 

@@ -1,9 +1,9 @@
-package br.com.especializacao.sevira2;
+package br.com.especializacao.json;
 
 import java.util.ArrayList;
 
 import br.com.especializacao.sevira2.R;
-
+ 
 import android.app.Activity;
 import android.content.Context;
 import android.util.Log;

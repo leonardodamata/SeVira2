@@ -1,10 +1,13 @@
-package br.com.especializacao.sevira2;
+package br.com.especializacao.json;
 
 import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import br.com.especializacao.sevira2.ListaActivity;
+
 
 
 import android.app.ProgressDialog;
