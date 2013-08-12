@@ -65,7 +65,7 @@ int layout activity_navegador 0x7f030005
 int layout footer_layout 0x7f030006
 int layout fragment_layout 0x7f030007
 int layout list_item 0x7f030008
-int layout row_site 0x7f030009
+int layout row_subcategory 0x7f030009
 int menu lista 0x7f080000
 int menu lista_sites 0x7f080001
 int menu main 0x7f080002
@@ -98,6 +98,7 @@ int style ActionBarProgressBar 0x7f070004
 int style AppBaseTheme 0x7f070005
 int style AppTheme 0x7f070006
 int style DashboardButton 0x7f070008
-int style FooterBar 0x7f070009
+int style FooterBar 0x7f07000a
+int style ListText 0x7f070009
 int[] styleable ActionBar { 0x7f010000 }
 int styleable ActionBar_title 0

@@ -1,6 +1,7 @@
 package br.com.especializacao.sevira2;
 
 
+
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
@@ -31,7 +32,7 @@ public class ListaActivity extends  ListActivity  {
 		setContentView(R.layout.activity_lista);
 	    configureActionBar();
 	    subcategorys = new ArrayList<Subcategory>();
-		adapter = new SubcategoryAdapter (this,R.layout.row_site,subcategorys);
+		adapter = new SubcategoryAdapter (this,R.layout.row_subcategory,subcategorys);
 		
 		setListAdapter(adapter);
 		
@@ -105,7 +106,7 @@ public class ListaActivity extends  ListActivity  {
 		            finish();
 		        }
 		    }
-
+ 
 
 
 	}
