@@ -1,4 +1,4 @@
-package br.com.especializacao.json;
+package br.com.especializacao.sevira2;
 
 import java.util.ArrayList;
 

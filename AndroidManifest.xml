@@ -40,10 +40,7 @@
             android:name="br.com.especializacao.sevira2.NavegadorActivity"
             android:label="@string/title_activity_navegador" >
         </activity>
-        <activity
-            android:name="br.com.especializacao.sevira2.SubCategoryItensActivity"
-            android:label="@string/title_activity_sub_category_itens" >
-        </activity>
+       
     </application>
 
 </manifest>

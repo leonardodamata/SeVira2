@@ -1,8 +1,5 @@
 package br.com.especializacao.sevira2;
 
-import br.com.especializacao.json.Subcategory;
-import br.com.especializacao.json.SubcategoryAdapter;
-import br.com.especializacao.json.SubcategoryDownloader;
 
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
@@ -19,6 +16,7 @@ import android.view.Menu;
 import android.view.View;
 
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 
@@ -36,6 +34,7 @@ public class ListaActivity extends  ListActivity  {
 	    subcategorys = new ArrayList<Subcategory>();
 		adapter = new SubcategoryAdapter (this,R.layout.row_subcategory,subcategorys);
 		
+		Toast.makeText(getApplicationContext(), "Exemplo Toast", Toast.LENGTH_SHORT).show();
 		setListAdapter(adapter);
 		
 		leituraSubcategory();    
@@ -52,9 +51,9 @@ public class ListaActivity extends  ListActivity  {
 	@Override
 	protected void onListItemClick(ListView  l, View v, int position, long id){
 		super.onListItemClick(l,v,position,id);
-		
+		Toast.makeText(getApplicationContext(), "Exemplo Toast", Toast.LENGTH_SHORT).show();
 		//Intent i = new  Intent(this,SubCategoryItensActivity.class);
-		Intent i = new  Intent(ListaActivity.this,NavegadorActivity.class);
+		Intent i = new  Intent(this,NavegadorActivity.class);
 		i.putExtra("url",subcategorys.get(position).getUrl());
 		startActivity(i);
 		

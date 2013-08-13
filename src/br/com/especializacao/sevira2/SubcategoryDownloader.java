@@ -1,12 +1,11 @@
-package br.com.especializacao.json;
+package br.com.especializacao.sevira2;
 
 import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
- 
-import br.com.especializacao.sevira2.SubCategoryItensActivity;
+
 
 
 
@@ -14,20 +13,20 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class SubcategoryItensDownloader extends AsyncTask<Void,Void,ArrayList<Subcategory>>{
+public class SubcategoryDownloader extends AsyncTask<Void,Void,ArrayList<Subcategory>>{
 
-	private SubCategoryItensActivity uiLista;
+	private ListaActivity uiLista;
 	private ProgressDialog dialog;
 	
 		
-	public SubcategoryItensDownloader(SubCategoryItensActivity listaActivity){
+	public SubcategoryDownloader(ListaActivity listaActivity){
 		
 		this.uiLista = listaActivity;
 			
 	}@Override
 	protected void onPreExecute(){
 		super.onPreExecute();
-		dialog = ProgressDialog.show(uiLista,"Aguarde","Carregando as Categorias Itens");
+		dialog = ProgressDialog.show(uiLista,"Aguarde","Carregando as Categorias");
 	}
 	@Override
 	protected ArrayList<Subcategory> doInBackground(Void... params){
