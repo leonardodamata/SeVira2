@@ -17,5 +17,6 @@
     <string name="title_activity_lista">ListaActivity</string>
     <string name="dados">Sem Dados</string>
     <string name="title_activity_navegador">Navegador</string>
+    <string name="title_activity_sub_category_itens">SubCategoryItensActivity</string>
 
 </resources>

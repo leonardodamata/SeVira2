@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -41,8 +42,13 @@ public class SubcategoryAdapter   extends ArrayAdapter<Subcategory>{
 		TextView nome = (TextView) linha.findViewById(R.id.titulo);
 		nome.setText(subcategorys.get(position).getName());
 		
-		TextView url = (TextView) linha.findViewById(R.id.url);
-		url.setText(subcategorys.get(position).getUrl());
+		TextView id_category = (TextView) linha.findViewById(R.id.id_category);
+		id_category.setText(subcategorys.get(position).getId());
+		
+		WebView meuWebView = (WebView) linha.findViewById(R.id.webImage);
+		meuWebView.loadUrl(subcategorys.get(position).getUrl());
+		
+		
 		
 	
 		//retorno a linha pronta
