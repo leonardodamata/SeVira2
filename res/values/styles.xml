@@ -39,6 +39,7 @@
         <item name="android:background">#FFFFFF</item>
     </style>    
     
+ 
     <style name="ListText">
         <item name="android:layout_gravity">left</item>
         <item name="android:layout_width">wrap_content</item>
@@ -50,6 +51,7 @@
         <item name="android:textColor">#ff29549f</item>
         <item name="android:background">#FFFFFF</item>
     </style>     
+ 
    <style name="FooterBar">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">40dp</item>

@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-
-
-
+ 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -46,7 +43,7 @@ public class SubcategoryDownloader extends AsyncTask<Void,Void,ArrayList<Subcate
 						subcategoryEmJSON.getString("name"));
 				array.add(subcategory);
 				
-			} 
+			}
 		}catch (JSONException e ){
 			Log.d("PAU", e.getMessage());
 		}	
@@ -62,4 +59,3 @@ public class SubcategoryDownloader extends AsyncTask<Void,Void,ArrayList<Subcate
 	}
 	
 }
- 

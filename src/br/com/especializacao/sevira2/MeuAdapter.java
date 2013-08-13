@@ -2,29 +2,27 @@ package br.com.especializacao.sevira2;
 
 import java.util.ArrayList;
 
- 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class SubcategoryAdapter   extends ArrayAdapter<Subcategory>{
+public class MeuAdapter  extends ArrayAdapter<Site>{
 
 	private Context context;
 	private int layoutResourceId;
-	private ArrayList<Subcategory> subcategorys= null;
+	private ArrayList<Site> sites= null;
 	
-	public SubcategoryAdapter(Context context, int layout,ArrayList<Subcategory> subcategorys) {
+	public MeuAdapter(Context context, int layout,ArrayList<Site> sites) {
 	
-		super(context, layout, subcategorys);
+		super(context, layout, sites);
 		this.context = context;
 		this.layoutResourceId = layout;
-		this.subcategorys = subcategorys;
+		this.sites = sites;
 	}
 	
 	@Override
@@ -39,15 +37,10 @@ public class SubcategoryAdapter   extends ArrayAdapter<Subcategory>{
 		//personaliza o layout
 		
 		TextView nome = (TextView) linha.findViewById(R.id.titulo);
-		nome.setText(subcategorys.get(position).getName());
+		nome.setText(sites.get(position).getNome());
 		
-		TextView id_category = (TextView) linha.findViewById(R.id.id_category);
-		id_category.setText(subcategorys.get(position).getId());
-		
-		WebView meuWebView = (WebView) linha.findViewById(R.id.webImage);
-		meuWebView.loadUrl(subcategorys.get(position).getUrl());
-		
-		
+		TextView url = (TextView) linha.findViewById(R.id.url);
+		url.setText(sites.get(position).getUrl());
 		
 	
 		//retorno a linha pronta
@@ -57,8 +50,8 @@ public class SubcategoryAdapter   extends ArrayAdapter<Subcategory>{
 	
 	@Override
 	public int getCount(){
-		Log.d("DEBUG","Existem "+ subcategorys.size() + "subcategorys");
-		return subcategorys.size();
+		Log.d("DEBUG","Existem "+ sites.size() + "sites");
+		return sites.size();
 	}
 	
 	
