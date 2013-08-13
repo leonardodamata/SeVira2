@@ -1,28 +1,34 @@
-package br.com.especializacao.sevira2;
+package br.com.especializacao.json;
+
 
 import java.util.ArrayList;
 
-import android.content.Context;
-import android.util.Log;
+import br.com.especializacao.sevira2.R;
+
+ 
 import android.app.Activity;
+import android.content.Context;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class MeuAdapter  extends ArrayAdapter<Site>{
+
+public class SubcategoryAdapter   extends ArrayAdapter<Subcategory>{
 
 	private Context context;
 	private int layoutResourceId;
-	private ArrayList<Site> sites= null;
+	private ArrayList<Subcategory> subcategorys= null;
 	
-	public MeuAdapter(Context context, int layout,ArrayList<Site> sites) {
+	public SubcategoryAdapter(Context context, int layout,ArrayList<Subcategory> subcategorys) {
 	
-		super(context, layout, sites);
+		super(context, layout, subcategorys);
 		this.context = context;
 		this.layoutResourceId = layout;
-		this.sites = sites;
+		this.subcategorys = subcategorys;
 	}
 	
 	@Override
@@ -36,11 +42,17 @@ public class MeuAdapter  extends ArrayAdapter<Site>{
 		
 		//personaliza o layout
 		
-		TextView nome = (TextView) linha.findViewById(R.id.titulo);
-		nome.setText(sites.get(position).getNome());
+	//	WebView meuWebView = (WebView) linha.findViewById(R.id.meuWebView);
+	//	meuWebView.loadUrl(subcategorys.get(position).getUrl());
 		
-		TextView url = (TextView) linha.findViewById(R.id.url);
-		url.setText(sites.get(position).getUrl());
+		TextView nome = (TextView) linha.findViewById(R.id.titulo);
+		nome.setText(subcategorys.get(position).getName());
+		
+		TextView id = (TextView) linha.findViewById(R.id.id);
+		id.setText(subcategorys.get(position).getId());
+		
+	
+		
 		
 	
 		//retorno a linha pronta
@@ -50,10 +62,9 @@ public class MeuAdapter  extends ArrayAdapter<Site>{
 	
 	@Override
 	public int getCount(){
-		Log.d("DEBUG","Existem "+ sites.size() + "sites");
-		return sites.size();
+		Log.d("DEBUG","Existem "+ subcategorys.size() + "subcategorys");
+		return subcategorys.size();
 	}
-	
 	
 	
 }

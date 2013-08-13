@@ -18,5 +18,7 @@
     <string name="dados">Sem Dados</string>
     <string name="title_activity_navegador">Navegador</string>
     <string name="title_activity_sub_category_itens">SubCategoryItensActivity</string>
+    <string name="todo">TODO</string>
+    <string name="title_activity_lista_item">ListaItemActivity</string>
 
 </resources>

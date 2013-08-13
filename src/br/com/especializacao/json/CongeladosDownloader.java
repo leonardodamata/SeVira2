@@ -1,34 +1,37 @@
-package br.com.especializacao.sevira2;
+package br.com.especializacao.json;
 
 import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import br.com.especializacao.sevira2.ListaItemActivity;
  
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class SubcategoryDownloader extends AsyncTask<Void,Void,ArrayList<Subcategory>>{
+public class CongeladosDownloader extends AsyncTask<Void,Void,ArrayList<Subcategory>>{
 
-	private ListaActivity uiLista;
+	private ListaItemActivity uiLista;
 	private ProgressDialog dialog;
-	
-		
-	public SubcategoryDownloader(ListaActivity listaActivity){
+	public CongeladosDownloader(ListaItemActivity listaActivity){
 		
 		this.uiLista = listaActivity;
 			
-	}@Override
+	}
+	@Override
 	protected void onPreExecute(){
 		super.onPreExecute();
-		dialog = ProgressDialog.show(uiLista,"Aguarde","Carregando as Categorias");
+		dialog = ProgressDialog.show(uiLista,"Aguarde","Carregando Congelados");
 	}
 	@Override
 	protected ArrayList<Subcategory> doInBackground(Void... params){
 		JSONParser parser = new JSONParser();
-		JSONObject json = parser.getJSONFromUrl("https://dl.dropbox.com/s/lldz91dgwpmwz6y/subcategorys.json");
+		JSONObject json = parser.getJSONFromUrl("https://dl.dropbox.com/s/f6dl60v0havdp42/congelados.json");
+		
+	
 		return parse (json);
 	}
 	
