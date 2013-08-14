@@ -32,4 +32,8 @@
     <string name="valor">Valor:</string>
     <string name="lista">Digite o nome da lista!</string>
     <string name="item">Digite detalhes da compra!</string>
+    <string name="title_activity_create_item_sc">CreateItemSCActivity</string>
+    <string name="title_activity_lista_item_sc">ListaItemSCActivity</string>
+    <string name="title_activity_lista_sc">ListaSCActivity</string>
+
 </resources>

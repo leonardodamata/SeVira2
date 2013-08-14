@@ -1,7 +1,6 @@
 package br.com.especializacao.sevira2;
 
 import br.com.especializacao.banco.DatabaseHelper;
-
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
@@ -18,18 +17,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CreateItemActivity extends Activity {
+
+public class CreateItemSCActivity extends Activity {
 
 	private TextView txt_produto;
 	private String nome_produto, id_category;
 	private Integer id_lista;
 	private EditText quantidade, valor;
 	private DatabaseHelper helper;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
-		setContentView(R.layout.activity_create_item);
+		setContentView(R.layout.activity_create_item_sc);
 		txt_produto = (TextView) this.findViewById(R.id.produto);
 
 		configureActionBar();
@@ -75,7 +76,7 @@ public class CreateItemActivity extends Activity {
 
 				if(resultado != -1 ){
 					Toast.makeText(getApplicationContext(), "Registro Salvo e Retornado a tela principal",Toast.LENGTH_SHORT).show();
-					Intent i = new Intent(CreateItemActivity.this, Main2Activity.class);
+					Intent i = new Intent(CreateItemSCActivity.this, Main2Activity.class);
 					startActivity(i); 
 
 				}else{
@@ -106,11 +107,10 @@ public class CreateItemActivity extends Activity {
 				long resultado = db.insert("item", null, values);
 
 				if(resultado != -1 ){
-					//Toast.makeText(getApplicationContext(), id_lista.toString()+"/"+id_category+" Registro Salvo e Retornado tela itens",Toast.LENGTH_SHORT).show();
-					Intent i = new  Intent(CreateItemActivity.this,ListaSCActivity.class);
+					Toast.makeText(getApplicationContext(), id_lista.toString()+"/"+id_category+" Registro Salvo e Retornado tela itens",Toast.LENGTH_SHORT).show();
+					/*Intent i = new  Intent(CreateItemActivity.this,ListaItemActivity.class);
 					i.putExtra("id_lista",id_lista);
-					i.putExtra("id_category",id_category);
-					startActivity(i);
+					startActivity(i);*/
 
 				}else{
 					Toast.makeText(getApplicationContext(), "Registro Não Salvo",Toast.LENGTH_SHORT).show();
@@ -131,7 +131,7 @@ public class CreateItemActivity extends Activity {
 			public void onClick(View view) {
 
 				Toast.makeText(getApplicationContext(), "Cancelar", Toast.LENGTH_SHORT).show();
-				Intent i = new Intent(CreateItemActivity.this, Main2Activity.class);
+				Intent i = new Intent(CreateItemSCActivity.this, Main2Activity.class);
 				startActivity(i);
 			}
 		});
@@ -165,7 +165,7 @@ public class CreateItemActivity extends Activity {
 
 		@Override
 		public void performAction(View view) {
-			Intent i = new Intent(CreateItemActivity.this, MainActivity.class);
+			Intent i = new Intent(CreateItemSCActivity.this, MainActivity.class);
 			startActivity(i);
 
 		}

@@ -52,6 +52,18 @@
             android:name="br.com.especializacao.sevira2.CreateItemActivity"
             android:label="@string/title_activity_create_item" >
         </activity>
+        <activity
+            android:name="br.com.especializacao.sevira2.CreateItemSCActivity"
+            android:label="@string/title_activity_create_item_sc" >
+        </activity>
+        <activity
+            android:name="br.com.especializacao.sevira2.ListaItemSCActivity"
+            android:label="@string/title_activity_lista_item_sc" >
+        </activity>
+        <activity
+            android:name="br.com.especializacao.sevira2.ListaSCActivity"
+            android:label="@string/title_activity_lista_sc" >
+        </activity>
     </application>
 
 </manifest>

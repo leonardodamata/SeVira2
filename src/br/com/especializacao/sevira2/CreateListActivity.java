@@ -24,7 +24,7 @@ public class CreateListActivity extends Activity {
 
 	private DatabaseHelper helper;
 	private EditText nome, data_compra;
-	private String id_produto;
+	private String id_produto, id_category;
 	private String nome_produto;
 	private Integer id_lista;
 	private Integer ano, mes, dia;
@@ -40,6 +40,7 @@ public class CreateListActivity extends Activity {
 		Intent i = getIntent();
 		id_produto = i.getStringExtra("id");
 		nome_produto = i.getStringExtra("name");
+		id_category  = i.getStringExtra("id_category");
 
 		nome = (EditText) findViewById(R.id.editNome);
 		Calendar calendar = Calendar.getInstance();
@@ -79,6 +80,7 @@ public class CreateListActivity extends Activity {
 					Intent i = new  Intent(CreateListActivity.this,CreateItemActivity.class);
 					i.putExtra("nome_produto",nome_produto);
 					i.putExtra("id_lista",id_lista);
+					i.putExtra("id_category",id_category);
 					startActivity(i);
 
 				}else{
