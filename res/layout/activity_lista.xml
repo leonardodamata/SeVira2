@@ -9,22 +9,14 @@
         android:id="@+id/actionbar"
         style="@style/ActionBar"/>
 
-	   
-	<ListView 
+	<ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-    <TextView
-         android:id="@android:id/empty"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#FFFFFF"
-        android:text="@string/dados"
-        android:gravity="center"/>
-  
-  
-      <!--  Include Footer -->
-        <include layout="@layout/footer_layout"/>
+        android:layout_height="0dp"
+        android:layout_weight="1.14" />
+
+    <!-- Include Footer -->
+
+    <include layout="@layout/footer_layout" />
 
 </LinearLayout>

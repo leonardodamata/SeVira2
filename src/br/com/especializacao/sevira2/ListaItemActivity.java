@@ -133,10 +133,10 @@ private void leituraSubcategory(){
 @Override
 protected void onListItemClick(ListView  l, View v, int position, long id){
 	super.onListItemClick(l,v,position,id);
-	
-	//Intent i = new  Intent(this,SubCategoryItensActivity.class);
-	Intent i = new  Intent(this,NavegadorActivity.class);
-	i.putExtra("url",subcategorys.get(position).getUrl());
+		
+	Intent i = new  Intent(this,CreateListActivity.class);
+	i.putExtra("id",subcategorys.get(position).getId());
+	i.putExtra("name",subcategorys.get(position).getName());
 	startActivity(i);
 	
 }

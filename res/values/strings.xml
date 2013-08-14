@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="bem_vindo">Seja Bem Vindo!</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="opcao">Escolha uma opçao!</string>
+    <string name="opcao">Escolha uma opção!</string>
     <string name="footer">Se Vira 2.0</string>
     <string name="criar">Criar</string>
     <string name="alterar">Atualizar</string>
@@ -20,5 +20,16 @@
     <string name="title_activity_sub_category_itens">SubCategoryItensActivity</string>
     <string name="todo">TODO</string>
     <string name="title_activity_lista_item">ListaItemActivity</string>
-
+    <string name="title_activity_create_list">CreateListActivity</string>
+    <string name="nome">Título:</string>
+    <string name="data">Data:</string>
+    <string name="salvar">Salvar</string>
+    <string name="continuar">Salvar e Novo</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="title_activity_create_item">CreateItemActivity</string>
+    <string name="produto">Nome:</string>
+    <string name="quantidade">Quantidade:</string>
+    <string name="valor">Valor:</string>
+    <string name="lista">Digite o nome da lista!</string>
+    <string name="item">Digite detalhes da compra!</string>
 </resources>

@@ -22,21 +22,21 @@ public class ListaActivity extends  ListActivity  {
 
 	private ArrayList<Subcategory> subcategorys;
 	private SubcategoryAdapter adapter;
-		
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
 		setContentView(R.layout.activity_lista);
-	    configureActionBar();
-	    subcategorys = new ArrayList<Subcategory>();
+		configureActionBar();
+		subcategorys = new ArrayList<Subcategory>();
 		adapter = new SubcategoryAdapter (this,R.layout.row_subcategory,subcategorys);
-		
+
 		setListAdapter(adapter);
-		
+
 		leituraSubcategory();    
 
-	 }
+	}
 
 
 	private void leituraSubcategory(){
@@ -48,11 +48,11 @@ public class ListaActivity extends  ListActivity  {
 	@Override
 	protected void onListItemClick(ListView  l, View v, int position, long id){
 		super.onListItemClick(l,v,position,id);
-		
+
 		Intent i = new  Intent(this,ListaItemActivity.class);
 		i.putExtra("id",subcategorys.get(position).getId());
 		startActivity(i);
-		
+
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,51 +60,51 @@ public class ListaActivity extends  ListActivity  {
 		getMenuInflater().inflate(R.menu.lista, menu);
 		return true;
 	}
-	
+
 	public void atualizaItens(ArrayList<Subcategory> meusSubcategorys){
 		this.subcategorys.clear();
 		this.subcategorys.addAll(meusSubcategorys);
 		adapter.notifyDataSetChanged();
- 
+
+	}
+
+
+	private void configureActionBar() {
+		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
+		actionBar.setTitle(R.string.opcao);
+		actionBar.setHomeAction(new MainAction());
+		actionBar.addAction (new BackAction()); 
+		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 
 
-	 private void configureActionBar() {
-	        ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);
-	        actionBar.setTitle(R.string.opcao);
-	        actionBar.setHomeAction(new MainAction());
-	        actionBar.addAction (new BackAction()); 
-	        actionBar.setDisplayHomeAsUpEnabled(true);
-	    }
+	public class MainAction extends AbstractAction {
 
+		public MainAction() {
+			super(R.drawable.home);
 
-		  public class MainAction extends AbstractAction {
+		}
 
-		        public MainAction() {
-		            super(R.drawable.home);
+		@Override
+		public void performAction(View view) {
+			Intent i = new Intent(ListaActivity.this, MainActivity.class);
+			startActivity(i);
 
-		        }
-
-		        @Override
-		        public void performAction(View view) {
-		          Intent i = new Intent(ListaActivity.this, MainActivity.class);
-					   startActivity(i);
-
-		        }
-		    }
-
-		  private class BackAction extends AbstractAction {
-
-		        public BackAction() {
-		            super(R.drawable.back);
-		        }
-
-		        @Override
-				public void performAction(View view) {
-		            finish();
-		        }
-		    }
-
-
-
+		}
 	}
+
+	private class BackAction extends AbstractAction {
+
+		public BackAction() {
+			super(R.drawable.back);
+		}
+
+		@Override
+		public void performAction(View view) {
+			finish();
+		}
+	}
+
+
+
+}
