@@ -42,9 +42,7 @@ public class SubcategoryAdapter   extends ArrayAdapter<Subcategory>{
 		
 		//personaliza o layout
 		
-	//	WebView meuWebView = (WebView) linha.findViewById(R.id.meuWebView);
-	//	meuWebView.loadUrl(subcategorys.get(position).getUrl());
-		
+	 
 		TextView nome = (TextView) linha.findViewById(R.id.titulo);
 		nome.setText(subcategorys.get(position).getName());
 		

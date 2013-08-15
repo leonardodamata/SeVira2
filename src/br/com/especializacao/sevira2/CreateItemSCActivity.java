@@ -25,7 +25,7 @@ public class CreateItemSCActivity extends Activity {
 	private Integer id_lista;
 	private EditText quantidade, valor;
 	private DatabaseHelper helper;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class CreateItemSCActivity extends Activity {
 
 		configureActionBar();
 		Intent i = getIntent();
-		nome_produto = i.getStringExtra("nome_produto");
+		nome_produto = i.getStringExtra("name");
 		id_lista = i.getIntExtra("id_lista", 0);
 		id_category = i.getStringExtra("id_category");
 
@@ -107,10 +107,11 @@ public class CreateItemSCActivity extends Activity {
 				long resultado = db.insert("item", null, values);
 
 				if(resultado != -1 ){
-					Toast.makeText(getApplicationContext(), id_lista.toString()+"/"+id_category+" Registro Salvo e Retornado tela itens",Toast.LENGTH_SHORT).show();
-					/*Intent i = new  Intent(CreateItemActivity.this,ListaItemActivity.class);
+					Toast.makeText(getApplicationContext(),  "Registro Salvo e Retornado tela itens",Toast.LENGTH_SHORT).show();
+					Intent i = new  Intent(CreateItemSCActivity.this,ListaSCActivity.class);
 					i.putExtra("id_lista",id_lista);
-					startActivity(i);*/
+					i.putExtra("id_category",id_category);
+					startActivity(i);
 
 				}else{
 					Toast.makeText(getApplicationContext(), "Registro Não Salvo",Toast.LENGTH_SHORT).show();

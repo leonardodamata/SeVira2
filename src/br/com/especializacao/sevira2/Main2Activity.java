@@ -22,9 +22,11 @@ public class Main2Activity extends Activity {
 	    configureActionBar();
 	    
 	    
-	 // Dashboard News feed button
+	 // Dashboard New Lista button
         Button btn_newlista = (Button) findViewById(R.id.btn_new_lista);
         
+     // Dashboard Edit Lista button
+      Button btn_editlista = (Button) findViewById(R.id.btn_edit_lista);
         
         /**
          * Handling all button click events
@@ -40,6 +42,17 @@ public class Main2Activity extends Activity {
                 startActivity(i);
             }
         });
+        
+        // Listening to Edit lista button click
+       btn_editlista.setOnClickListener(new View.OnClickListener() {
+             
+            @Override
+            public void onClick(View view) {
+                // Launching News Feed Screen
+                Intent i = new Intent(getApplicationContext(), EditListaActivity.class);
+                startActivity(i);
+            }
+        }); 
 	}
  
 	 private void configureActionBar() {

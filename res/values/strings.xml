@@ -12,7 +12,7 @@
     <string name="alterar">Atualizar</string>
     <string name="apagar">Apagar</string>
     <string name="alarme">Agendar</string>
-    <string name="compartilhar">Compartilhar</string>
+    <string name="comprar">Comprar</string>
     <string name="enviar">Google Calendar</string>
     <string name="title_activity_lista">ListaActivity</string>
     <string name="dados">Sem Dados</string>
@@ -35,5 +35,6 @@
     <string name="title_activity_create_item_sc">CreateItemSCActivity</string>
     <string name="title_activity_lista_item_sc">ListaItemSCActivity</string>
     <string name="title_activity_lista_sc">ListaSCActivity</string>
+    <string name="title_activity_edit_lista">EditListaActivity</string>
 
 </resources>

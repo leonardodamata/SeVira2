@@ -106,7 +106,7 @@ public class CreateItemActivity extends Activity {
 				long resultado = db.insert("item", null, values);
 
 				if(resultado != -1 ){
-					//Toast.makeText(getApplicationContext(), id_lista.toString()+"/"+id_category+" Registro Salvo e Retornado tela itens",Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(),  "Registro Salvo e Retornado tela itens",Toast.LENGTH_SHORT).show();
 					Intent i = new  Intent(CreateItemActivity.this,ListaSCActivity.class);
 					i.putExtra("id_lista",id_lista);
 					i.putExtra("id_category",id_category);

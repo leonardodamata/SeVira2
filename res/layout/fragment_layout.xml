@@ -15,7 +15,7 @@
       
     <!--  Alterar Button -->
     <Button
-        android:id="@+id/btn_friends"
+        android:id="@+id/btn_edit_lista"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/refresh"
         android:text="@string/alterar" />
@@ -35,12 +35,12 @@
         android:text="@string/alarme" />
  
     
-    <!--  Compartilhar Button -->
+    <!--  Comprar Button -->
     <Button
         android:id="@+id/btn_events"
         style="@style/DashboardButton"
-        android:drawableTop="@drawable/share"
-        android:text="@string/compartilhar" />
+        android:drawableTop="@drawable/full"
+        android:text="@string/comprar" />
  
     <!--  Enviar Google Task Button -->
     <Button
