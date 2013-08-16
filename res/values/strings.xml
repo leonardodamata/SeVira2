@@ -36,5 +36,8 @@
     <string name="title_activity_lista_item_sc">ListaItemSCActivity</string>
     <string name="title_activity_lista_sc">ListaSCActivity</string>
     <string name="title_activity_edit_lista">EditListaActivity</string>
+    <string name="title_activity_edit_lista_item">EditListaItemActivity</string>
+    <string name="plus">Item</string>
+    <string name="delete">Apagar</string>
 
 </resources>
