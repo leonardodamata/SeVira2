@@ -64,6 +64,10 @@
             android:name="br.com.especializacao.sevira2.EditListaItemActivity"
             android:label="@string/title_activity_edit_lista_item" >
         </activity>
+        <activity
+            android:name="br.com.especializacao.sevira2.ListaItemListActivity"
+            android:label="@string/title_activity_lista_item_list" >
+        </activity>
     </application>
 
 </manifest>

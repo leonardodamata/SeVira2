@@ -180,7 +180,8 @@ public class CreateItemSCActivity extends Activity {
 
 		@Override
 		public void performAction(View view) {
-			finish();
+			Intent i = new Intent(getApplicationContext(), Main2Activity.class);
+			startActivity(i);
 		}
 	}
 	@Override

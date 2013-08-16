@@ -66,7 +66,6 @@ public class CreateListActivity extends Activity {
 		// Listening to Nova lista button click
 		btnOk.setOnClickListener(new View.OnClickListener() {
 
-			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View view) {
 				
@@ -170,7 +169,8 @@ public class CreateListActivity extends Activity {
 
 		@Override
 		public void performAction(View view) {
-			finish();
+			Intent i = new Intent(getApplicationContext(), Main2Activity.class);
+			startActivity(i);
 		}
 	}
 
