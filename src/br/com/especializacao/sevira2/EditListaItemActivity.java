@@ -1,6 +1,11 @@
 package br.com.especializacao.sevira2;
 
  
+import java.util.List;
+
+import br.com.especializacao.banco.Compra;
+import br.com.especializacao.banco.CompraDataSource;
+
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
@@ -9,15 +14,38 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class EditListaItemActivity extends Activity {
 
+	private long id_lista;
+	private TextView txt_produto, txt_data_compra;
+	private CompraDataSource datasource;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
 		setContentView(R.layout.activity_edit_lista_item);
 		configureActionBar();
+		
+		Intent i = getIntent();
+		id_lista = i.getLongExtra("id",0);
+		
+
+
+		datasource = new CompraDataSource(this);
+		datasource.open();
+		
+		Compra compra = datasource.ListCompra(id_lista);
+	
+		
+		txt_produto = (TextView) this.findViewById(R.id.editNome);
+		txt_data_compra = (TextView) this.findViewById(R.id.editData);
+
+		txt_produto.setText(compra.getNome());
+		txt_data_compra.setText( compra.getData_compra());
+		Toast.makeText(getApplicationContext(), "Compras: "+compra,Toast.LENGTH_SHORT).show();
 
 	}
 

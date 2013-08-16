@@ -9,7 +9,6 @@ import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
 import android.app.ListActivity;
-import android.content.ContentValues;
 import android.content.Intent;
 
 import android.os.Bundle;
@@ -62,7 +61,7 @@ public class EditListaActivity extends ListActivity {
 
 		Compra compra = null;
 		compra = (Compra) getListAdapter().getItem(position);
- 
+		
 		Intent i = new  Intent(this,EditListaItemActivity.class);
 		i.putExtra("id",compra.getId());
 		startActivity(i);

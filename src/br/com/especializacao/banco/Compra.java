@@ -4,7 +4,7 @@ package br.com.especializacao.banco;
 public class Compra {
 	private long id;
 	private String nome;
-	private long data_compra;
+	private String data_compra;
 
 
 	public long getId() {
@@ -19,10 +19,10 @@ public class Compra {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public long getData_compra() {
+	public String getData_compra() {
 		return data_compra;
 	}
-	public void setData_compra(long data_compra) {
+	public void setData_compra(String data_compra) {
 		this.data_compra = data_compra;
 	}
 

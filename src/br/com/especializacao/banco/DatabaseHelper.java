@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE compras (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-				" nome TEXT, data_compra DATE);");
+				" nome TEXT, data_compra TEXT);");
 
 		db.execSQL("CREATE TABLE item (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
 				" nome TEXT,  valor DOUBLE," +

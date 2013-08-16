@@ -1,8 +1,6 @@
 package br.com.especializacao.sevira2;
 
 import java.util.Calendar;
-import java.util.Date;
-
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
@@ -29,7 +27,7 @@ public class CreateListActivity extends Activity {
 	private String nome_produto;
 	private Integer id_lista;
 	private Integer ano, mes, dia;
-    private Date d = new Date();
+
 
 
 	@Override
@@ -75,7 +73,7 @@ public class CreateListActivity extends Activity {
 				SQLiteDatabase db = helper.getWritableDatabase();
 				ContentValues values = new ContentValues();
 				values.put("nome",nome.getText().toString());
-				values.put("data_compra",new Date().getDate());
+				values.put("data_compra",data_compra.getText().toString());
 			
 				long resultado = db.insert("compras", null, values);
 

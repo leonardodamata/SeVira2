@@ -45,7 +45,7 @@ public class CompraDataSource {
 		Compra compras = new Compra();
 	 	compras.setId(cursor.getInt(0));
 	    compras.setNome(cursor.getString(1));
-	    compras.setData_compra(cursor.getLong(2)); 
+	    compras.setData_compra(cursor.getString(2)); 
 
 		return compras;
 	}
@@ -55,7 +55,7 @@ public class CompraDataSource {
 		Cursor cursor =
 				database.rawQuery("SELECT _id FROM compras",null);
 		cursor.moveToFirst();
-		  if (cursor.getCount() != 0) { //HERE IS THE PROBLEM
+		  if (cursor.getCount() != 0) { 
 	          id= 1;
 	        }
 		  else
@@ -66,6 +66,45 @@ public class CompraDataSource {
 		cursor.close();
 		return id;
 
+
+	}
+	
+	public Compra ListCompra(long id_compra) {
+		Compra compras = new Compra();
+
+		Cursor cursor =				
+				database.rawQuery("SELECT _id,  nome, data_compra FROM compras  WHERE _id="+id_compra,null);
+ 
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+
+		 	compras.setId(cursor.getInt(0));
+		    compras.setNome(cursor.getString(1));
+		    compras.setData_compra(cursor.getString(2)); 
+
+			cursor.moveToNext(); 
+		}
+		// Make sure to close the cursor
+		cursor.close();
+		return compras;
+	}
+	public void updateLista(long id_compra, String nome, String  data_compra) {
+		Integer id2 ;
+		Cursor cursor =
+			//	database.update(table, values, whereClause, whereArgs)
+				database.rawQuery("UPDATE compras set nome =" +nome+", data_compra="+data_compra+"WHERE _id="+id_compra,null);
+		
+		cursor.moveToFirst();
+		  if (cursor.getCount() != 0) { 
+	          id2= 1;
+	        }
+		  else
+		  {
+			  id2= 0;
+		  }
+		
+		cursor.close();
+	
 
 	}
 
