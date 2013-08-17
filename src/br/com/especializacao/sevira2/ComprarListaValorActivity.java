@@ -10,7 +10,7 @@ import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
 
-import android.R.integer;
+
 import android.app.Activity;
 
 import android.content.Intent;
@@ -46,7 +46,7 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 
 		Integer qdte = datasource.qtdeItem(id_lista);
 
-		if(qdte==0){
+		/*if(qdte==0){
 			Toast.makeText(getApplicationContext(), "Nenhum Registro encontrado",Toast.LENGTH_SHORT).show();
 			Intent ic = new Intent(getApplicationContext(), ComprarListaActivity.class);
 
@@ -58,7 +58,7 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 
 
 		} 
- 
+*/
 		List<Item> values = datasource.ListAllItem(id_lista);
 
 
@@ -66,8 +66,8 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 		lViewChekBox = (ListView) findViewById(android.R.id.list);
 		lViewChekBox.setAdapter(new ArrayAdapter<Item>(this,android.R.layout.simple_list_item_multiple_choice,  values) );   
 		lViewChekBox.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-		
-		 
+
+
 		lViewChekBox.setOnItemClickListener(this);
 		lViewChekBox.setActivated(false) ;
 
@@ -83,33 +83,30 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 
 
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        long id_n;
+
+
+		Item item = null;
+		item = (Item) lViewChekBox.getItemAtPosition(position);
+
+
 		//// Chamar a activity tela de compras
 		if(lViewChekBox.isActivated()== false)
 		{
-		//	parent.findViewWithTag()
-			//id_n=(Long) lViewChekBox.getSelectedItem()getItemId(0);
-			Toast.makeText(getApplicationContext(), "id!"+view.findViewWithTag(id),Toast.LENGTH_SHORT).show();
-	   /*  Intent i = new Intent(getApplicationContext(), CadastrarValorActivity.class);
-			i.putExtra("id",id);
+
+			Intent i = new Intent(getApplicationContext(), CadastrarValorActivity.class);
+			i.putExtra("id",item.getId());
+			i.putExtra("id_lista",id_lista);
 			startActivity(i);  
-			
-			/*	Intent produtosValor = new Intent(ListaFeitaActivity.this,ValorActivity.class);
-			produtosValor.putExtra("listaDeProdutos2",listaDeProdutos2);
-			produtosValor.putExtra("listaDeQuantidades2",listaDeQuantidades2);
-			produtosValor.putExtra("listaDeUnidadesDeMedidas2",listaDeUnidadesDeMedidas2);
-			produtosValor.putExtra("tamanho", tamanho);
-			posicao = position;
-			startActivityForResult(produtosValor,1);*/
+
 			Toast.makeText(getApplicationContext(), "marcando!",Toast.LENGTH_SHORT).show();
 			lViewChekBox.setActivated(true) ;
 		}
 		else
 		{
-			
+
 			Toast.makeText(getApplicationContext(), "desmarcando!",Toast.LENGTH_SHORT).show();
 			lViewChekBox.setActivated(false) ;
-			
+
 			/*valor = valor - listaDeValor2[position];
 			total = total - listaDeQuantidades2[position];	
 			listaDeValor2[position] = 0;
@@ -174,6 +171,7 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 	protected void onResume() {
 		datasource.open();
 		super.onResume();
+	
 	}
 
 	@Override
