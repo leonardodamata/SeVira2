@@ -37,7 +37,7 @@
     
     <!--  Comprar Button -->
     <Button
-        android:id="@+id/btn_events"
+        android:id="@+id/btn_buy_lista"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/full"
         android:text="@string/comprar" />

@@ -21,14 +21,15 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
-public class ApagarListaActivity extends ListActivity {
-	
+public class ComprarListaActivity extends ListActivity {
+
 	private CompraDataSource datasource;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
-		setContentView(R.layout.activity_apagar_lista);
+		setContentView(R.layout.activity_comprar_lista);
 		configureActionBar();
 		
 
@@ -39,7 +40,7 @@ public class ApagarListaActivity extends ListActivity {
 
 		if(qdte==0){
 			Toast.makeText(getApplicationContext(), "Nenhum Registro encontrado",Toast.LENGTH_SHORT).show();
-			Intent i = new Intent(ApagarListaActivity.this, Main2Activity.class);
+			Intent i = new Intent(ComprarListaActivity.this, Main2Activity.class);
 			startActivity(i); 
 
 		}else{
@@ -55,10 +56,11 @@ public class ApagarListaActivity extends ListActivity {
 
 	}
 
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.apagar_lista, menu);
+		getMenuInflater().inflate(R.menu.comprar_lista, menu);
 		return true;
 	}
 	
@@ -80,7 +82,7 @@ public class ApagarListaActivity extends ListActivity {
 
 		@Override
 		public void performAction(View view) {
-			Intent i = new Intent(ApagarListaActivity.this, Main2Activity.class);
+			Intent i = new Intent(ComprarListaActivity.this, Main2Activity.class);
 			startActivity(i);
 
 		}
@@ -92,11 +94,11 @@ public class ApagarListaActivity extends ListActivity {
 
 		Compra compra = null;
 		compra = (Compra) getListAdapter().getItem(position);
-		
-		datasource.deleteLista(compra.getId());
-		Toast.makeText(getApplicationContext(), "Apagado com sucesso!",Toast.LENGTH_SHORT).show();
-		Intent i = new Intent(getApplicationContext(), Main2Activity.class);
-		startActivity(i);
+	
+		Intent i = new Intent(getApplicationContext(), ComprarListaValorActivity.class);
+		i.putExtra("id",compra.getId());
+		startActivity(i); 
+	 
 		
 
 	}
@@ -130,3 +132,5 @@ public class ApagarListaActivity extends ListActivity {
 
 
 }
+
+ 

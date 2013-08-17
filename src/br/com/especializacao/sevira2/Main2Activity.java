@@ -31,6 +31,9 @@ public class Main2Activity extends Activity {
       
    // Dashboard Apagar Lista button
       Button btn_dellista = (Button) findViewById(R.id.btn_del_lista);
+      
+      // Dashboard Comprar Lista button
+      Button btn_buylista = (Button) findViewById(R.id.btn_buy_lista);
         /**
          * Handling all button click events
          * */
@@ -63,6 +66,16 @@ public class Main2Activity extends Activity {
             public void onClick(View view) {
                 // Launching News Feed Screen
                 Intent i = new Intent(getApplicationContext(), ApagarListaActivity.class);
+                startActivity(i);
+            }
+        }); 
+       // Listening to buy lista button click
+       btn_buylista.setOnClickListener(new View.OnClickListener() {
+             
+            @Override
+            public void onClick(View view) {
+                // Launching News Feed Screen
+                Intent i = new Intent(getApplicationContext(), ComprarListaActivity.class);
                 startActivity(i);
             }
         }); 

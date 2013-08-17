@@ -72,6 +72,18 @@
             android:name="br.com.especializacao.sevira2.ApagarListaActivity"
             android:label="@string/title_activity_apagar_lista" >
         </activity>
+        <activity
+            android:name="br.com.especializacao.sevira2.ComprarListaActivity"
+            android:label="@string/title_activity_comprar_lista" >
+        </activity>
+        <activity
+            android:name="br.com.especializacao.sevira2.ComprarListaValorActivity"
+            android:label="@string/title_activity_comprar_lista_valor" >
+        </activity>
+        <activity
+            android:name="br.com.especializacao.sevira2.CadastrarValorActivity"
+            android:label="@string/title_activity_cadastrar_valor" >
+        </activity>
     </application>
 
 </manifest>

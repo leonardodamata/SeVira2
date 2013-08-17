@@ -41,5 +41,8 @@
     <string name="delete">Apagar</string>
     <string name="title_activity_lista_item_list">ListaItemListActivity</string>
     <string name="title_activity_apagar_lista">ApagarListaActivity</string>
+    <string name="title_activity_comprar_lista">ComprarListaActivity</string>
+    <string name="title_activity_comprar_lista_valor">ComprarListaValorActivity</string>
+    <string name="title_activity_cadastrar_valor">CadastrarValorActivity</string>
 
 </resources>

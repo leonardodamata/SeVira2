@@ -3,6 +3,7 @@ package br.com.especializacao.banco;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -75,6 +76,35 @@ public class ItemDataSource {
 		database.delete("item", "_id="+ id_item,null);
 	
 		database.close();
+
+	}
+
+	public void updateItem(long id_item, String valor) {
+
+
+		ContentValues values = new ContentValues();
+		values.put("_id",id_item);
+		values.put("valor",valor.toString());
+ 	database.update("item", values, "_id = "+ id_item, null);
+
+		database.close();
+
+	}
+	
+	
+	public String nomeItem(long id_item) {
+		String nome ="";
+		Cursor cursor =
+				database.rawQuery("SELECT nome  FROM item WHERE _id ="+id_item,null);
+		cursor.moveToFirst();
+		if (cursor.getCount() != 0) { 
+			nome= cursor.getString(0);
+		}
+		 
+
+		cursor.close();
+		return nome;
+
 
 	}
 
