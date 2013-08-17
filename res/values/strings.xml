@@ -40,5 +40,6 @@
     <string name="plus">Item</string>
     <string name="delete">Apagar</string>
     <string name="title_activity_lista_item_list">ListaItemListActivity</string>
+    <string name="title_activity_apagar_lista">ApagarListaActivity</string>
 
 </resources>

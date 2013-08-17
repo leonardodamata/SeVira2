@@ -21,8 +21,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 				" nome TEXT, data_compra TEXT);");
 
 		db.execSQL("CREATE TABLE item (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-				" nome TEXT,  valor DOUBLE," +
-				" quantidade DOUBLE" +
+				" nome TEXT,  valor TEXT," +
+				" quantidade TEXT" +
 				"compras_id INTEGER," +
 				" FOREIGN KEY(compras_id) REFERENCES compras(_id));");
 	}

@@ -29,7 +29,7 @@ public class Compra {
 	
 	@Override
 	public String toString() {
-		return "Compra: id=" + id + ", nome=" + nome + ", data_compra="
+		return "nome=" + nome + ", data="
 				+ data_compra;
 	}
 	

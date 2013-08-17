@@ -67,9 +67,9 @@ public class CreateItemSCActivity extends Activity {
 				SQLiteDatabase db = helper.getWritableDatabase();
 				ContentValues values = new ContentValues();
 				values.put("nome",nome_produto.toString());
-				values.put("quantidade",quantidade.toString());
-				values.put("valor",valor.toString());
-				values.put("compras_id",id_lista);
+				values.put("quantidade",quantidade.getText().toString());
+				values.put("valor",valor.getText().toString());
+				values.put("compras_id",id_lista.toString());
 
 
 				long resultado = db.insert("item", null, values);

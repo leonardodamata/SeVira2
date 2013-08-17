@@ -22,7 +22,7 @@
   
     <!--  Apagar Button -->
     <Button
-        android:id="@+id/btn_messages"
+        android:id="@+id/btn_del_lista"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/remove"
         android:text="@string/apagar" />

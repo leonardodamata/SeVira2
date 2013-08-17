@@ -1,7 +1,10 @@
 package br.com.especializacao.sevira2;
 
+ 
+
 import br.com.especializacao.banco.Compra;
 import br.com.especializacao.banco.CompraDataSource;
+import br.com.especializacao.banco.ItemDataSource;
 
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
@@ -20,6 +23,8 @@ public class EditListaItemActivity extends Activity {
 	private long id_lista;
 	private TextView txt_produto, txt_data_compra;
 	private CompraDataSource datasource;
+	private ItemDataSource datasourceI;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,7 +49,9 @@ public class EditListaItemActivity extends Activity {
 		txt_produto.setText(compra.getNome());
 		txt_data_compra.setText( compra.getData_compra());
 
-
+		
+		datasourceI = new ItemDataSource(this);
+		datasourceI.open();
 		// btn salvar
 		Button btn_salvar = (Button) findViewById(R.id.btn_ok);
 
@@ -83,7 +90,7 @@ public class EditListaItemActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				Toast.makeText(getApplicationContext(), "Retornado para Lista!",Toast.LENGTH_SHORT).show();
-				Intent i = new Intent(getApplicationContext(), EditListaActivity.class);
+				Intent i = new Intent(getApplicationContext(), Main2Activity.class);
 				startActivity(i);
 			}
 		});	
@@ -93,12 +100,25 @@ public class EditListaItemActivity extends Activity {
 
 		// Listening to item button click
 		btn_item.setOnClickListener(new View.OnClickListener() {
-
+			
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(getApplicationContext(), "Indo para os itens da lista!",Toast.LENGTH_SHORT).show();
-				Intent i = new Intent(getApplicationContext(), ListaItemListActivity.class);
-				startActivity(i);
+				
+				
+				
+				Integer qdte = datasourceI.qtdeItem(id_lista);
+
+			 	if(qdte==0){
+					Toast.makeText(getApplicationContext(), "Nenhum Registro encontrado",Toast.LENGTH_SHORT).show();
+					
+				}else{
+
+					Toast.makeText(getApplicationContext(), "Indo para os itens da lista!",Toast.LENGTH_SHORT).show();
+					Intent i = new Intent(getApplicationContext(), ListaItemListActivity.class);
+					i.putExtra("id_lista",id_lista);
+					startActivity(i);
+			
+				} 
 			}
 		});		
 	}
@@ -144,7 +164,7 @@ public class EditListaItemActivity extends Activity {
 
 		@Override
 		public void performAction(View view) {
-			Intent i = new Intent(getApplicationContext(), Main2Activity.class);
+			Intent i = new Intent(getApplicationContext(), EditListaActivity.class);
 			startActivity(i);
 		}
 	}

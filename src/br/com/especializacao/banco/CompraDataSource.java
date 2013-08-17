@@ -107,11 +107,6 @@ public class CompraDataSource {
 	
 	public void deleteLista(long id_compra) {
 
-
-	//	ContentValues values = new ContentValues();
-	//	values.put("_id",id_compra);
-	//	 db.delete("viagem", "_id = ?", where);
-
 		database.delete("item", "compras_id="+ id_compra,null);
 		database.delete("compras", "_id="+ id_compra,null);
 
