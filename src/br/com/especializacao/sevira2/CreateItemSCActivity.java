@@ -112,7 +112,7 @@ public class CreateItemSCActivity extends Activity {
 					ContentValues values = new ContentValues();
 					values.put("nome",nome_produto.toString());
 					values.put("quantidade",quantidade.getText().toString());
-					values.put("valor",valor.getText().toString());
+					values.put("valor","0");
 					values.put("compras_id",id_lista);
 
 
