@@ -13,6 +13,7 @@ public class ItemDataSource {
 	// Database fields
 	private SQLiteDatabase database;
 	private DatabaseHelper dbHelper;
+	private DatabaseHelper helper;
 
 
 	public ItemDataSource(Context context) {
@@ -25,10 +26,10 @@ public class ItemDataSource {
 	public void close() {
 		dbHelper.close();
 	}
-	
+
 	public List<Item> ListAllItem(long id_compra) {
 		List<Item> itens = new ArrayList<Item>();
- 
+
 		Cursor cursor = database.rawQuery("SELECT _id,  nome, valor,quantidade, compras_id FROM item WHERE compras_id ="+id_compra,null);
 
 		cursor.moveToFirst();
@@ -45,13 +46,13 @@ public class ItemDataSource {
 		Item itens = new Item();
 		itens.setId(cursor.getInt(0));
 		itens.setNome(cursor.getString(1));
-        itens.setValor(cursor.getString(2));
-        itens.setQuantidade(cursor.getString(3));
-        itens.setCompras_id(cursor.getLong(4));
+		itens.setValor(cursor.getString(2));
+		itens.setQuantidade(cursor.getString(3));
+		itens.setCompras_id(cursor.getLong(4));
 
 		return itens;
 	}
-	
+
 	public Integer qtdeItem(long id_compra) {
 		Integer id ;
 		Cursor cursor =
@@ -74,7 +75,7 @@ public class ItemDataSource {
 	public void deleteItem(long id_item) {
 
 		database.delete("item", "_id="+ id_item,null);
-	
+
 		database.close();
 
 	}
@@ -85,13 +86,13 @@ public class ItemDataSource {
 		ContentValues values = new ContentValues();
 		values.put("_id",id_item);
 		values.put("valor",valor.toString());
- 	database.update("item", values, "_id = "+ id_item, null);
+		database.update("item", values, "_id = "+ id_item, null);
 
 		database.close();
 
 	}
-	
-	
+
+
 	public String nomeItem(long id_item) {
 		String nome ="";
 		Cursor cursor =
@@ -100,7 +101,7 @@ public class ItemDataSource {
 		if (cursor.getCount() != 0) { 
 			nome= cursor.getString(0);
 		}
-		 
+
 
 		cursor.close();
 		database.close();
@@ -118,7 +119,7 @@ public class ItemDataSource {
 		if (cursor.getCount() != 0) { 
 			qtde= cursor.getInt(0);
 		}
-		 
+
 
 		cursor.close();
 		database.close();
@@ -126,36 +127,33 @@ public class ItemDataSource {
 
 
 	}
-	
-	public double  sumVallorItem(long id_compra) {
-		
+
+	public double  sumVallorItem(long raio) {
+
+
 		double total  =0 ;
-		
+
 		Cursor cursor = 
-				database.rawQuery("SELECT SUM(valor)    FROM item WHERE compras_id ="+id_compra,null);
-	
+				database.rawQuery("SELECT SUM(valor)    FROM item WHERE compras_id ="+raio,null);
+
 
 		cursor.moveToFirst();
 		if (cursor.getCount() != 0) { 
-			total=  Double.parseDouble(cursor.getString(0));
+			total= cursor.getDouble(0) ;
+			//Double.parseDouble(cursor.getString(0));
 		}
-		 
+
 
 		cursor.close();
-	//	database.close();
+		database.close();
 		return total;
 
 
 	}
-/*	
-	cursor.moveToFirst();
-	while (!cursor.isAfterLast()) {
-		Item item = cursorToItem(cursor);
-		itens.add(item);
-		cursor.moveToNext(); 
-	}
-	*/
-	 
-	 
+
+
+
+
+
 
 }

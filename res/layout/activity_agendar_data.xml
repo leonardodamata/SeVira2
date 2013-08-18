@@ -36,14 +36,13 @@
             android:layout_gravity="center"
             android:text="@string/data" />
 
-        <DatePicker
-         	 android:id="@+id/datePicker1"
-     	   android:layout_width="wrap_content"
-    	    android:layout_height="wrap_content"
-    	    android:layout_marginTop="10dp"
-    	   
-    	    android:calendarViewShown="false" 
-    	    android:layout_gravity="center"
+         <DatePicker
+        android:id="@+id/datePicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+ 
+        android:calendarViewShown="false" 
+        android:layout_gravity="center"
       />
     </LinearLayout>
 

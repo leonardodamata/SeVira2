@@ -36,7 +36,7 @@ int drawable plus 0x7f020011
 int drawable refresh 0x7f020012
 int drawable remove 0x7f020013
 int drawable save_continue 0x7f020014
-int id action_settings 0x7f090020
+int id action_settings 0x7f090021
 int id actionbar 0x7f09000a
 int id actionbar_actions 0x7f090006
 int id actionbar_home 0x7f090001
@@ -53,6 +53,7 @@ int id btn_cancel 0x7f09000d
 int id btn_del 0x7f090018
 int id btn_del_lista 0x7f09001b
 int id btn_edit_lista 0x7f09001a
+int id btn_home 0x7f09001e
 int id btn_new_lista 0x7f090019
 int id btn_ok 0x7f09000c
 int id btn_plus 0x7f090017
@@ -62,12 +63,12 @@ int id editData 0x7f090016
 int id editNome 0x7f090015
 int id editQuantidade 0x7f090013
 int id editValor 0x7f090010
-int id id 0x7f09001f
+int id id 0x7f090020
 int id produto 0x7f09000f
 int id quantidade 0x7f090011
 int id screen 0x7f090000
 int id timePicker1 0x7f09000e
-int id titulo 0x7f09001e
+int id titulo 0x7f09001f
 int id valor2 0x7f090012
 int layout actionbar 0x7f030000
 int layout actionbar_item 0x7f030001

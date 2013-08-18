@@ -19,7 +19,8 @@ import android.widget.Toast;
 
 public  class ComprarListaValorActivity  extends ListActivity {
 
-	private ItemDataSource datasource;
+	private ItemDataSource datasource; 
+	private ItemDataSource datasource2;
 	private long id_lista;
 	List<Item> values;
 	private TextView txt_quantidade, txt_valor;
@@ -66,8 +67,12 @@ public  class ComprarListaValorActivity  extends ListActivity {
 		Integer countQtde =  datasource.countItem(id_lista);
 		txt_quantidade.setText(countQtde.toString());
 		txt_valor = (TextView) this.findViewById(R.id.valor2);
-		// double sumQtde =  datasource.sumVallorItem(id_lista);
-		//txt_valor.setText(sumQtde.toString());
+		 
+		datasource2 = new ItemDataSource(this);
+		datasource2.open();
+		double sumQtde =  datasource2.sumVallorItem(id_lista);
+		//Integer test = datasource2.sumVallorItem2(id_lista);
+		 txt_valor.setText(String.valueOf(sumQtde));
 	}
 
 	@Override
@@ -137,6 +142,7 @@ public  class ComprarListaValorActivity  extends ListActivity {
 	@Override
 	protected void onResume() {
 		datasource.open();
+		datasource2.open();
 		super.onResume();
 
 
@@ -146,6 +152,7 @@ public  class ComprarListaValorActivity  extends ListActivity {
 	@Override
 	protected void onPause() {
 		datasource.close();
+		datasource2.close();
 		super.onPause();
 	}
 

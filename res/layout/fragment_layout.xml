@@ -42,6 +42,11 @@
         android:drawableTop="@drawable/full"
         android:text="@string/comprar" />
  
-  
+   <!--  App Button -->
+    <Button
+        android:id="@+id/btn_home"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/home"
+        android:text="@string/app_name" />
  
 </br.com.especializacao.sevira2.DashboardLayout>
