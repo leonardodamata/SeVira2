@@ -93,7 +93,7 @@ public class EditListaActivity extends ListActivity {
 
 		@Override
 		public void performAction(View view) {
-			Intent i = new Intent(EditListaActivity.this, MainActivity.class);
+			Intent i = new Intent(EditListaActivity.this, Main2Activity.class);
 			startActivity(i);
 
 		}

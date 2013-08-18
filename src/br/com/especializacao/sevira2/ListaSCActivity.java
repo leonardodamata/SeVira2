@@ -93,7 +93,7 @@ public class ListaSCActivity extends ListActivity {
 
 		@Override
 		public void performAction(View view) {
-			Intent i = new Intent(ListaSCActivity.this, MainActivity.class);
+			Intent i = new Intent(ListaSCActivity.this, Main2Activity.class);
 			startActivity(i);
 
 		}

@@ -166,7 +166,7 @@ public class CreateListActivity extends Activity {
 
 		@Override
 		public void performAction(View view) {
-			Intent i = new Intent(CreateListActivity.this, MainActivity.class);
+			Intent i = new Intent(CreateListActivity.this, Main2Activity.class);
 			startActivity(i);
 
 		}

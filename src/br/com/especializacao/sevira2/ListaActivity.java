@@ -87,7 +87,7 @@ public class ListaActivity extends  ListActivity  {
 
 		@Override
 		public void performAction(View view) {
-			Intent i = new Intent(ListaActivity.this, MainActivity.class);
+			Intent i = new Intent(ListaActivity.this, Main2Activity.class);
 			startActivity(i);
 
 		}

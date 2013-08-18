@@ -89,11 +89,10 @@ int layout activity_lista_item 0x7f03000f
 int layout activity_lista_item_list 0x7f030010
 int layout activity_lista_item_sc 0x7f030011
 int layout activity_lista_sc 0x7f030012
-int layout activity_main 0x7f030013
-int layout activity_main2 0x7f030014
-int layout footer_layout 0x7f030015
-int layout fragment_layout 0x7f030016
-int layout row_subcategory 0x7f030017
+int layout activity_main2 0x7f030013
+int layout footer_layout 0x7f030014
+int layout fragment_layout 0x7f030015
+int layout row_subcategory 0x7f030016
 int menu agendar_data 0x7f080000
 int menu agendar_hora 0x7f080001
 int menu agendar_lista 0x7f080002

@@ -178,7 +178,7 @@ public class CreateItemSCActivity extends Activity {
 
 		@Override
 		public void performAction(View view) {
-			Intent i = new Intent(CreateItemSCActivity.this, MainActivity.class);
+			Intent i = new Intent(CreateItemSCActivity.this, Main2Activity.class);
 			startActivity(i);
 
 		}

@@ -178,7 +178,7 @@ private void configureActionBar() {
 
 	        @Override
 	        public void performAction(View view) {
-	          Intent i = new Intent(ListaItemSCActivity.this, MainActivity.class);
+	          Intent i = new Intent(ListaItemSCActivity.this, Main2Activity.class);
 				   startActivity(i);
 
 	        }
