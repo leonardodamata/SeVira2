@@ -2,40 +2,33 @@ package br.com.especializacao.sevira2;
 
 import java.util.List;
 
-import br.com.especializacao.banco.Compra;
 import br.com.especializacao.banco.Item;
 import br.com.especializacao.banco.ItemDataSource;
 
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
-
-
-
-import android.app.Activity;
-
+import android.app.ListActivity;
 import android.content.Intent;
-
 import android.os.Bundle;
-
 import android.view.Menu;
 import android.view.View;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public  class ComprarListaValorActivity  extends Activity implements OnItemClickListener  {
+public  class ComprarListaValorActivity  extends ListActivity {
 
 	private ItemDataSource datasource;
 	private long id_lista;
-	private ListView lViewChekBox;
 	List<Item> values;
+	private TextView txt_quantidade, txt_valor;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.app_name);
 		setContentView(R.layout.activity_comprar_lista_valor);
+
 		configureActionBar();
 
 		Intent i = getIntent();
@@ -46,7 +39,7 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 
 		Integer qdte = datasource.qtdeItem(id_lista);
 
-		/*if(qdte==0){
+		if(qdte==0){
 			Toast.makeText(getApplicationContext(), "Nenhum Registro encontrado",Toast.LENGTH_SHORT).show();
 			Intent ic = new Intent(getApplicationContext(), ComprarListaActivity.class);
 
@@ -58,20 +51,23 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 
 
 		} 
-*/
+
 		List<Item> values = datasource.ListAllItem(id_lista);
 
 
-
-		lViewChekBox = (ListView) findViewById(android.R.id.list);
-		lViewChekBox.setAdapter(new ArrayAdapter<Item>(this,android.R.layout.simple_list_item_multiple_choice,  values) );   
-		lViewChekBox.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-
-
-		lViewChekBox.setOnItemClickListener(this);
-		lViewChekBox.setActivated(false) ;
+		// Use the SimpleCursorAdapter to show the
+		// elements in a ListView
+		ArrayAdapter<Item> adapter = new ArrayAdapter<Item>(this,
+				android.R.layout.simple_list_item_1, values);
+		setListAdapter(adapter);
 
 
+		txt_quantidade = (TextView) this.findViewById(R.id.quantidade);
+		Integer countQtde =  datasource.countItem(id_lista);
+		txt_quantidade.setText(countQtde.toString());
+		txt_valor = (TextView) this.findViewById(R.id.valor2);
+		// String sumQtde =  datasource.sumVallorItem(id_lista);
+		//txt_valor.setText(sumQtde.toString());
 	}
 
 	@Override
@@ -81,51 +77,22 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 		return true;
 	}
 
-
-	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+	@Override
+	protected void onListItemClick(ListView  l, View v, int position, long id){
+		super.onListItemClick(l,v,position,id);
 
 		Item item = null;
-		item = (Item) lViewChekBox.getItemAtPosition(position);
+		item = (Item) getListAdapter().getItem(position);
+
+		Intent i = new Intent(getApplicationContext(), CadastrarValorActivity.class);
+		i.putExtra("id",item.getId());
+		i.putExtra("id_lista",id_lista);
+		startActivity(i);  
 
 
-		//// Chamar a activity tela de compras
-		if(lViewChekBox.isActivated()== false)
-		{
-
-			Intent i = new Intent(getApplicationContext(), CadastrarValorActivity.class);
-			i.putExtra("id",item.getId());
-			i.putExtra("id_lista",id_lista);
-			startActivity(i);  
-
-			Toast.makeText(getApplicationContext(), "marcando!",Toast.LENGTH_SHORT).show();
-			lViewChekBox.setActivated(true) ;
-		}
-		else
-		{
-
-			Toast.makeText(getApplicationContext(), "desmarcando!",Toast.LENGTH_SHORT).show();
-			lViewChekBox.setActivated(false) ;
-
-			/*valor = valor - listaDeValor2[position];
-			total = total - listaDeQuantidades2[position];	
-			listaDeValor2[position] = 0;
-			status[position] = false; 
-
-
-			posicao = position;
-
-			status2[posicao] = false;
-
-			totalValor.setText("Valor Total: R$" + String.valueOf(valor+",00"));
-			totalPeso.setText("Total Itens: " + String.valueOf(total));
-
-
-			onResume();*/
-
-		}
 
 	}
+
 
 
 	private void configureActionBar() {
@@ -171,7 +138,9 @@ public  class ComprarListaValorActivity  extends Activity implements OnItemClick
 	protected void onResume() {
 		datasource.open();
 		super.onResume();
-	
+
+
+
 	}
 
 	@Override

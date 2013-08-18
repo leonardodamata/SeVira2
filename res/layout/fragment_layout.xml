@@ -29,7 +29,7 @@
   
     <!--  Alarme Button -->
     <Button
-        android:id="@+id/btn_places"
+        android:id="@+id/btn_alarm_lista"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/clock"
         android:text="@string/alarme" />

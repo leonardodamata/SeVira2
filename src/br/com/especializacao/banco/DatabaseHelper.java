@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 	private static final String BANCO_DADOS = "ListaCompras";
-	private static int VERSAO = 1;
+	private static int VERSAO = 5;
 	public static final String TABLE_COMPRAS = "compras";
 	public static final String TABLE_ITEM = "item";
 	public DatabaseHelper(Context context) {
@@ -21,8 +21,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 				" nome TEXT, data_compra TEXT);");
 
 		db.execSQL("CREATE TABLE item (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-				" nome TEXT,  valor TEXT," +
-				" quantidade TEXT" +
+				" nome TEXT,  valor  DOUBLE," +
+				" quantidade  DOUBLE," +
 				"compras_id INTEGER," +
 				" FOREIGN KEY(compras_id) REFERENCES compras(_id));");
 	}
@@ -32,8 +32,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	    Log.w(DatabaseHelper.class.getName(),
 	        "Upgrading database from version " + oldVersion + " to "
 	            + newVersion + ", which will destroy all old data");
-	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_COMPRAS);
+	   
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_ITEM);
+	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_COMPRAS);
 	
 	    onCreate(db);
 	  }

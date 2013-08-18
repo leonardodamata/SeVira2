@@ -34,6 +34,9 @@ public class Main2Activity extends Activity {
       
       // Dashboard Comprar Lista button
       Button btn_buylista = (Button) findViewById(R.id.btn_buy_lista);
+      
+      // Dashboard Alarme Lista button
+      Button btn_alarmlista = (Button) findViewById(R.id.btn_alarm_lista);
         /**
          * Handling all button click events
          * */
@@ -76,6 +79,16 @@ public class Main2Activity extends Activity {
             public void onClick(View view) {
                 // Launching News Feed Screen
                 Intent i = new Intent(getApplicationContext(), ComprarListaActivity.class);
+                startActivity(i);
+            }
+        }); 
+       // Listening to alarm lista button click
+       btn_alarmlista.setOnClickListener(new View.OnClickListener() {
+             
+            @Override
+            public void onClick(View view) {
+                // Launching News Feed Screen
+                Intent i = new Intent(getApplicationContext(), AgendarListaActivity.class);
                 startActivity(i);
             }
         }); 

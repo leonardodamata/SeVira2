@@ -103,10 +103,69 @@ public class ItemDataSource {
 		 
 
 		cursor.close();
+		database.close();
 		return nome;
 
 
 	}
 
+
+	public Integer countItem(long id_compra) {
+		Integer qtde =null;
+		Cursor cursor =
+				database.rawQuery("SELECT COUNT(_id)  as qtde FROM item WHERE compras_id ="+id_compra,null);
+		cursor.moveToFirst();
+		if (cursor.getCount() != 0) { 
+			qtde= cursor.getInt(0);
+		}
+		 
+
+		cursor.close();
+		database.close();
+		return qtde;
+
+
+	}
+	
+	public String  sumVallorItem(long id_compra) {
+		
+		double total  =0 ;
+		
+		Cursor cursor = 
+				database.rawQuery("SELECT _ID, valor    FROM item WHERE compras_id ="+id_compra,null);
+	
+
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			total=+Double.parseDouble(cursor.getString(1)); 
+			cursor.moveToNext(); 
+		}
+		
+		String total2 = String.valueOf(total);
+		/*if (cursor.getCount() != 0) { 
+		Float total = cursor.getFloat(0);
+		  total2 = Float.toString(total); 
+		
+		}
+		else{
+			total2= "t";
+		}*/
+		cursor.close();
+	 
+	 	database.close();
+
+		return total2;
+
+		}
+/*	
+	cursor.moveToFirst();
+	while (!cursor.isAfterLast()) {
+		Item item = cursorToItem(cursor);
+		itens.add(item);
+		cursor.moveToNext(); 
+	}
+	*/
+	 
+	 
 
 }

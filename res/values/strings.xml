@@ -44,5 +44,12 @@
     <string name="title_activity_comprar_lista">ComprarListaActivity</string>
     <string name="title_activity_comprar_lista_valor">ComprarListaValorActivity</string>
     <string name="title_activity_cadastrar_valor">CadastrarValorActivity</string>
+    <string name="qtde">Qtde:</string>
+    <string name="valor2">Valor:</string>
+    <string name="title_activity_agendar_data">AgendarDataActivity</string>
+    <string name="title_activity_agendar_lista">AgendarListaActivity</string>
+    <string name="data2">Escolha a data:</string>
+    <string name="title_activity_agendar_hora">AgendarHoraActivity</string>
+     <string name="hora2">Escolha a hora:</string>
 
 </resources>
