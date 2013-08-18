@@ -49,7 +49,7 @@ public class CreateListActivity extends Activity {
 		dia = calendar.get(Calendar.DAY_OF_MONTH);
 		data_compra = (EditText) findViewById(R.id.editData);
 		data_compra.setText(dia + "/" +  (mes+1)  + "/" + ano);
-     
+
 		helper = new DatabaseHelper(this);
 
 
@@ -68,29 +68,40 @@ public class CreateListActivity extends Activity {
 
 			@Override
 			public void onClick(View view) {
-				
-				SQLiteDatabase db = helper.getWritableDatabase();
-				ContentValues values = new ContentValues();
-				values.put("nome",nome.getText().toString());
-				values.put("data_compra",data_compra.getText().toString());
-			
-				long resultado = db.insert("compras", null, values);
-
-				if(resultado != -1 ){
-					Toast.makeText(getApplicationContext(), "Registro Salvo",Toast.LENGTH_SHORT).show();
-					id_lista = listarUltimaCompra();
-					Intent i = new  Intent(CreateListActivity.this,CreateItemActivity.class);
-					i.putExtra("nome_produto",nome_produto);
-					i.putExtra("id_lista",id_lista);
-					i.putExtra("id_category",id_category);
-					startActivity(i);
-
-				}else{
-					Toast.makeText(getApplicationContext(), "Registro Não Salvo",Toast.LENGTH_SHORT).show();
+				if( nome.getText().toString().length() == 0 ){
+					nome.setError( "O nome é obrigatorio!" );
 				}
+				else
+				{
 
-				db.close();
+					if( data_compra.getText().toString().length() == 0 ){
+						data_compra.setError( "A data é obrigatorio!" );
+					}
+					else
+					{
+						SQLiteDatabase db = helper.getWritableDatabase();
+						ContentValues values = new ContentValues();
+						values.put("nome",nome.getText().toString());
+						values.put("data_compra",data_compra.getText().toString());
 
+						long resultado = db.insert("compras", null, values);
+
+						if(resultado != -1 ){
+							Toast.makeText(getApplicationContext(), "Registro Salvo",Toast.LENGTH_SHORT).show();
+							id_lista = listarUltimaCompra();
+							Intent i = new  Intent(CreateListActivity.this,CreateItemActivity.class);
+							i.putExtra("nome_produto",nome_produto);
+							i.putExtra("id_lista",id_lista);
+							i.putExtra("id_category",id_category);
+							startActivity(i);
+
+						}else{
+							Toast.makeText(getApplicationContext(), "Registro Não Salvo",Toast.LENGTH_SHORT).show();
+						}
+
+						db.close();
+					}
+				}
 			}
 		});
 

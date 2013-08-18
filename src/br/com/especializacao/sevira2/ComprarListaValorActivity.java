@@ -66,7 +66,7 @@ public  class ComprarListaValorActivity  extends ListActivity {
 		Integer countQtde =  datasource.countItem(id_lista);
 		txt_quantidade.setText(countQtde.toString());
 		txt_valor = (TextView) this.findViewById(R.id.valor2);
-		// String sumQtde =  datasource.sumVallorItem(id_lista);
+		// double sumQtde =  datasource.sumVallorItem(id_lista);
 		//txt_valor.setText(sumQtde.toString());
 	}
 

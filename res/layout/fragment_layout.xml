@@ -42,11 +42,6 @@
         android:drawableTop="@drawable/full"
         android:text="@string/comprar" />
  
-    <!--  Enviar Google Task Button -->
-    <Button
-        android:id="@+id/btn_photos"
-        style="@style/DashboardButton"
-        android:drawableTop="@drawable/calendar"
-        android:text="@string/enviar" />
+  
  
 </br.com.especializacao.sevira2.DashboardLayout>

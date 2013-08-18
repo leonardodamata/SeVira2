@@ -1,7 +1,7 @@
 package br.com.especializacao.sevira2;
 
 import java.util.Calendar;
-
+ 
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.AbstractAction;
 
@@ -52,10 +52,10 @@ public class AgendarHoraActivity extends Activity {
 			hora = tp.getCurrentHour();
 			minuto = tp.getCurrentMinute();
 			
-			//Toast.makeText(getApplicationContext(), "id_lista "+id_lista+" dia "+dia+" mes "+mes+" ano "+ ano,Toast.LENGTH_SHORT).show();
-			
+			 Toast.makeText(getApplicationContext(), "id_lista "+id_lista+" dia "+dia+" mes "+mes+" ano "+ ano,Toast.LENGTH_SHORT).show();
+			 Toast.makeText(getApplicationContext(), "hora "+hora+" minuto "+minuto,Toast.LENGTH_SHORT).show();
 			Toast.makeText(getApplicationContext(), "Agendamento Hora!",Toast.LENGTH_SHORT).show();
-			aciona();
+		//	aciona();
 		}
 	});
 	
@@ -100,6 +100,23 @@ public class AgendarHoraActivity extends Activity {
 		//Intent i = new Intent(getApplicationContext(), Main2Activity.class);
 	//	startActivity(i);
 	}
+	
+	/*
+	private void aciona() {
+
+		Intent mainAux = getIntent();		
+		Intent myIntent1 = new Intent(AlarmeActivity.this, ListaFeitaActivity.class);
+	    myIntent1.putExtra("listaDeProdutos",mainAux.getStringArrayExtra("listaDeProdutos"));
+	    myIntent1.putExtra("listaDeQuantidades",mainAux.getLongArrayExtra("listaDeQuantidades"));
+	    myIntent1.putExtra("listaDeUnidadesDeMedidas",mainAux.getStringArrayExtra("listaDeUnidadesDeMedidas"));	    
+	    pendingIntent1 = PendingIntent.getActivity(this, 0, myIntent1, 0);
+	    AlarmManager alarmManager1 = (AlarmManager)getSystemService(ALARM_SERVICE);
+	    Calendar calendar1 = Calendar.getInstance();
+	    calendar1.set(ano,mes,dia,hora,minuto,0);
+	    alarmManager1.set(AlarmManager.RTC, calendar1.getTimeInMillis(), pendingIntent1);
+	    finish();
+	}
+	*/
 	
 	private void configureActionBar() {
 		ActionBar actionBar = (ActionBar) findViewById(R.id.actionbar);

@@ -70,7 +70,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:ems="10"
-            android:inputType="text|date" >
+            android:inputType="numberDecimal" >
             
               <requestFocus />
 

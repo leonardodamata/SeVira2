@@ -38,8 +38,7 @@ public class Item {
 	}
 	@Override
 	public String toString() {
-		return "id= "+id+" nome=" + nome + ", valor=" + valor + ", quantidade="
-				+ quantidade;
+		return nome + " | Valor: " + valor + " | Qtde: "+ quantidade;
 	}
 	
 	

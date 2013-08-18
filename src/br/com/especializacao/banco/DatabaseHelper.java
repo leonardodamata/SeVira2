@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
 	private static final String BANCO_DADOS = "ListaCompras";
-	private static int VERSAO = 5;
+	private static int VERSAO = 6;
 	public static final String TABLE_COMPRAS = "compras";
 	public static final String TABLE_ITEM = "item";
 	public DatabaseHelper(Context context) {
@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 				" nome TEXT, data_compra TEXT);");
 
 		db.execSQL("CREATE TABLE item (_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-				" nome TEXT,  valor  DOUBLE," +
+				" nome TEXT,  valor   NUMERIC( 10 ) ," +
 				" quantidade  DOUBLE," +
 				"compras_id INTEGER," +
 				" FOREIGN KEY(compras_id) REFERENCES compras(_id));");

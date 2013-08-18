@@ -67,14 +67,20 @@ public class CadastrarValorActivity extends Activity {
 
 			@Override
 			public void onClick(View view) {
-				datasource.updateItem(id_item, valor.getText().toString());
+				if( valor.getText().toString().length() == 0 ){
+					valor.setError( "O valor é obrigatorio!" );
+				}
+				else
+				{
 
-				Toast.makeText(getApplicationContext(), "Registro Salvo com sucesso",Toast.LENGTH_SHORT).show();
-				Intent ic = new Intent(CadastrarValorActivity.this, ComprarListaValorActivity.class);
-				ic.putExtra("id",id_lista);
-				startActivity(ic); 
- 
-			}});
+					datasource.updateItem(id_item, valor.getText().toString());
+
+					Toast.makeText(getApplicationContext(), "Registro Salvo com sucesso",Toast.LENGTH_SHORT).show();
+					Intent ic = new Intent(CadastrarValorActivity.this, ComprarListaValorActivity.class);
+					ic.putExtra("id",id_lista);
+					startActivity(ic); 
+
+				}	}});
 	}
 
 	@Override

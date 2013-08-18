@@ -41,7 +41,7 @@ public class CreateItemActivity extends Activity {
 		txt_produto.setText(nome_produto);
 
 		quantidade = (EditText) findViewById(R.id.editQuantidade);
-		valor = (EditText) findViewById(R.id.editValor);
+		//valor = (EditText) findViewById(R.id.editValor);
 
 		helper = new DatabaseHelper(this);
 
@@ -63,27 +63,33 @@ public class CreateItemActivity extends Activity {
 
 			@Override
 			public void onClick(View view) {
-				SQLiteDatabase db = helper.getWritableDatabase();
-				ContentValues values = new ContentValues();
-				values.put("nome",nome_produto.toString());
-				values.put("quantidade",quantidade.getText().toString());
-				values.put("valor",valor.getText().toString());
-				values.put("compras_id",id_lista.toString());
 
-
-				long resultado = db.insert("item", null, values);
-
-				if(resultado != -1 ){
-					Toast.makeText(getApplicationContext(), "Registro Salvo e Retornado a tela principal",Toast.LENGTH_SHORT).show();
-					Intent i = new Intent(CreateItemActivity.this, Main2Activity.class);
-					startActivity(i); 
-
-				}else{
-					Toast.makeText(getApplicationContext(), "Registro Não Salvo",Toast.LENGTH_SHORT).show();
+				if( quantidade.getText().toString().length() == 0 ){
+					quantidade.setError( "A quantidade de itens é obrigatorio!" );
 				}
+				else
+				{
+					SQLiteDatabase db = helper.getWritableDatabase();
+					ContentValues values = new ContentValues();
+					values.put("nome",nome_produto.toString());
+					values.put("quantidade",quantidade.getText().toString());
+					values.put("valor","0");
+					values.put("compras_id",id_lista.toString());
 
-				db.close();
 
+					long resultado = db.insert("item", null, values);
+
+					if(resultado != -1 ){
+						Toast.makeText(getApplicationContext(), "Registro Salvo e Retornado a tela principal",Toast.LENGTH_SHORT).show();
+						Intent i = new Intent(CreateItemActivity.this, Main2Activity.class);
+						startActivity(i); 
+
+					}else{
+						Toast.makeText(getApplicationContext(), "Registro Não Salvo",Toast.LENGTH_SHORT).show();
+					}
+
+					db.close();
+				}
 			}
 		});
 
@@ -92,32 +98,37 @@ public class CreateItemActivity extends Activity {
 
 			@Override
 			public void onClick(View view) {
-
-				id_lista = listarUltimaCompra();
-
-				SQLiteDatabase db = helper.getWritableDatabase();
-				ContentValues values = new ContentValues();
-				values.put("nome",nome_produto.toString());
-				values.put("quantidade",quantidade.getText().toString());
-				values.put("valor",valor.getText().toString());
-				values.put("compras_id",id_lista);
-
-
-				long resultado = db.insert("item", null, values);
-
-				if(resultado != -1 ){
-					Toast.makeText(getApplicationContext(),  "Registro Salvo e Retornado tela itens",Toast.LENGTH_SHORT).show();
-					Intent i = new  Intent(CreateItemActivity.this,ListaSCActivity.class);
-					i.putExtra("id_lista",id_lista);
-					i.putExtra("id_category",id_category);
-					startActivity(i);
-
-				}else{
-					Toast.makeText(getApplicationContext(), "Registro Não Salvo",Toast.LENGTH_SHORT).show();
+				if( quantidade.getText().toString().length() == 0 ){
+					quantidade.setError( "A quantidade de itens é obrigatorio!" );
 				}
+				else
+				{
 
-				db.close();
+					id_lista = listarUltimaCompra();
 
+					SQLiteDatabase db = helper.getWritableDatabase();
+					ContentValues values = new ContentValues();
+					values.put("nome",nome_produto.toString());
+					values.put("quantidade",quantidade.getText().toString());
+					values.put("valor","0");
+					values.put("compras_id",id_lista);
+
+
+					long resultado = db.insert("item", null, values);
+
+					if(resultado != -1 ){
+						Toast.makeText(getApplicationContext(),  "Registro Salvo e Retornado tela itens",Toast.LENGTH_SHORT).show();
+						Intent i = new  Intent(CreateItemActivity.this,ListaSCActivity.class);
+						i.putExtra("id_lista",id_lista);
+						i.putExtra("id_category",id_category);
+						startActivity(i);
+
+					}else{
+						Toast.makeText(getApplicationContext(), "Registro Não Salvo",Toast.LENGTH_SHORT).show();
+					}
+
+					db.close();
+				}
 
 			} 
 		});

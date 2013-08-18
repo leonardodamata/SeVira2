@@ -1,6 +1,6 @@
 package br.com.especializacao.sevira2;
 
- 
+
 
 import br.com.especializacao.banco.Compra;
 import br.com.especializacao.banco.CompraDataSource;
@@ -24,7 +24,7 @@ public class EditListaItemActivity extends Activity {
 	private TextView txt_produto, txt_data_compra;
 	private CompraDataSource datasource;
 	private ItemDataSource datasourceI;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +49,7 @@ public class EditListaItemActivity extends Activity {
 		txt_produto.setText(compra.getNome());
 		txt_data_compra.setText( compra.getData_compra());
 
-		
+
 		datasourceI = new ItemDataSource(this);
 		datasourceI.open();
 		// btn salvar
@@ -60,10 +60,23 @@ public class EditListaItemActivity extends Activity {
 
 			@Override
 			public void onClick(View view) {
-				datasource.updateLista(id_lista, txt_produto.getText().toString(), txt_data_compra.getText().toString());
-				Toast.makeText(getApplicationContext(), "Editado com sucesso!",Toast.LENGTH_SHORT).show();
-				Intent i = new Intent(getApplicationContext(), EditListaActivity.class);
-				startActivity(i);
+				if( txt_produto.getText().toString().length() == 0 ){
+					txt_produto.setError( "O nome da lista é obrigatorio!" );
+				}
+				else
+				{
+
+					if( txt_data_compra.getText().toString().length() == 0 ){
+						txt_data_compra.setError( "A data da lista é obrigatorio!" );
+					}
+					else{
+
+						datasource.updateLista(id_lista, txt_produto.getText().toString(), txt_data_compra.getText().toString());
+						Toast.makeText(getApplicationContext(), "Editado com sucesso!",Toast.LENGTH_SHORT).show();
+						Intent i = new Intent(getApplicationContext(), EditListaActivity.class);
+						startActivity(i);
+					}
+				}
 			}
 		});
 		// btn deletar
@@ -94,30 +107,30 @@ public class EditListaItemActivity extends Activity {
 				startActivity(i);
 			}
 		});	
-		
+
 		// btn item
 		Button btn_item = (Button) findViewById(R.id.btn_plus);
 
 		// Listening to item button click
 		btn_item.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View view) {
-				
-				
-				
+
+
+
 				Integer qdte = datasourceI.qtdeItem(id_lista);
 
-			 	if(qdte==0){
+				if(qdte==0){
 					Toast.makeText(getApplicationContext(), "Nenhum Registro encontrado",Toast.LENGTH_SHORT).show();
-					
+
 				}else{
 
 					Toast.makeText(getApplicationContext(), "Indo para os itens da lista!",Toast.LENGTH_SHORT).show();
 					Intent i = new Intent(getApplicationContext(), ListaItemListActivity.class);
 					i.putExtra("id_lista",id_lista);
 					startActivity(i);
-			
+
 				} 
 			}
 		});		

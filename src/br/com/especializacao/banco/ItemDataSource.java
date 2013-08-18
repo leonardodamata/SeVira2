@@ -127,36 +127,26 @@ public class ItemDataSource {
 
 	}
 	
-	public String  sumVallorItem(long id_compra) {
+	public double  sumVallorItem(long id_compra) {
 		
 		double total  =0 ;
 		
 		Cursor cursor = 
-				database.rawQuery("SELECT _ID, valor    FROM item WHERE compras_id ="+id_compra,null);
+				database.rawQuery("SELECT SUM(valor)    FROM item WHERE compras_id ="+id_compra,null);
 	
 
 		cursor.moveToFirst();
-		while (!cursor.isAfterLast()) {
-			total=+Double.parseDouble(cursor.getString(1)); 
-			cursor.moveToNext(); 
+		if (cursor.getCount() != 0) { 
+			total=  Double.parseDouble(cursor.getString(0));
 		}
-		
-		String total2 = String.valueOf(total);
-		/*if (cursor.getCount() != 0) { 
-		Float total = cursor.getFloat(0);
-		  total2 = Float.toString(total); 
-		
-		}
-		else{
-			total2= "t";
-		}*/
+		 
+
 		cursor.close();
-	 
-	 	database.close();
+	//	database.close();
+		return total;
 
-		return total2;
 
-		}
+	}
 /*	
 	cursor.moveToFirst();
 	while (!cursor.isAfterLast()) {

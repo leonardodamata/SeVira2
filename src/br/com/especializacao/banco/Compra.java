@@ -29,8 +29,7 @@ public class Compra {
 	
 	@Override
 	public String toString() {
-		return "nome=" + nome + ", data="
-				+ data_compra;
+		return nome + " | Data: " + data_compra;
 	}
 	
 	
